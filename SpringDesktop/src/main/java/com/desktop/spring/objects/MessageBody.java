@@ -1,7 +1,6 @@
 package com.desktop.spring.objects;
 
-import java.time.LocalDateTime;
-
+import java.time.LocalDate;
 
 public class MessageBody {
 	private String senderName;
@@ -9,7 +8,7 @@ public class MessageBody {
 	private int senderId;
 	private int recipientId;
 	private String text;
-	private LocalDateTime date;
+	private LocalDate date;
 	
 	public String getSenderName() {
 		return senderName;
@@ -41,10 +40,10 @@ public class MessageBody {
 	public void setText(String text) {
 		this.text = text;
 	}
-	public LocalDateTime getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(LocalDateTime date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	

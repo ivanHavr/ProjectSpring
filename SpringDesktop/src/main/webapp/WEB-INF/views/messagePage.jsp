@@ -207,6 +207,7 @@ function sendMessege(){
 	                    s +="<div id=\"messRUser\">"+res+"</div>";
 	                    $('#messRUser').css({"padding-left":""+((res.length*1,5)-res.length)+"px"});
 						$("#mees").append(s);
+						alert(s);
 						$('#pool_mess').val('');
 					}
 			});

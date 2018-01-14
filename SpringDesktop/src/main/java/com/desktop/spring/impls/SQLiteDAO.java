@@ -4,10 +4,9 @@ package com.desktop.spring.impls;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import javax.sql.DataSource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,7 +107,7 @@ public class SQLiteDAO implements ProfileDAO{
 	public void sendMessage(int sender_id, int recipient_id,String message) {
 		String sqlf = "insert into admin_spread.messages (sender_id,recipient_id,text,date) values (?,?,?,?)";
 		log.info("i am here");
-		jdbcTemplate.update(sqlf,new Object[] {sender_id,recipient_id,message,LocalDateTime.now()});
+		jdbcTemplate.update(sqlf,new Object[] {sender_id,recipient_id,message,LocalDate.now()});
 	}
 	@Override
 	public List<MessageBody> getMesseges(int sender, int recipient) {

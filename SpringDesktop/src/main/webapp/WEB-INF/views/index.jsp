@@ -8,7 +8,7 @@
 <link href="<c:url value="/resources/css/index.css" /> " rel="stylesheet" />
 <link href="<c:url value="/resources/font/font-awesome-4.7.0/css/font-awesome.min.css"/>" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>Welcome to Profile Post</title>
+<title>Welcome to Spread</title>
 <script type="text/javascript">
 
 </script>
