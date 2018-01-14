@@ -123,7 +123,7 @@ function selectFriend(user,iam){
 			$.ajax({
 				url:'getMessage',
 				method:'POST',
-				mimeType:"text/html; charset=UTF-8",
+				mimeType:"text/html; charset=iso-8859-1",
 				success: function(data){
 					var res = JSON.parse(data);
 					dataMes = res.length;
@@ -204,7 +204,7 @@ function sendMessege(){
 			 console.log("pre ajax");
 			    $.ajax({
 			    	url:'sendMessage',
-			    	mimeType:"text/html; charset=UTF-8",
+			    	mimeType:"text/html; charset=iso-8859-1",
 					data:({message:$('#pool_mess').val()}),
 					method:'POST',
 					success: function(data){
