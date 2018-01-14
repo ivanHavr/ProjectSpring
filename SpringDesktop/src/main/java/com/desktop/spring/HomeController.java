@@ -122,9 +122,7 @@ public class HomeController {
 		User Iam = (User)httpSession.getAttribute("userself");
 		User Add = (User)httpSession.getAttribute("userON");
 		sqliteDAO.sendMessage(Iam.getId(), Add.getId(), message);
-		String result = sqliteDAO.getLastMesseges(Iam.getId(),Add.getId());
-		
-		return result;
+		return message;
 	}
 	@RequestMapping(value = "/getMessage",  method = RequestMethod.POST)
 	@ResponseBody public String getMessage(HttpSession httpSession) {
