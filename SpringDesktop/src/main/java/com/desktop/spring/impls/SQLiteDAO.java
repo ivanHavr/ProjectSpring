@@ -73,7 +73,6 @@ public class SQLiteDAO implements ProfileDAO{
 	public boolean checkFriend(int userid, int friendId) {
 		String sql = "select friends_id from admin_spread.profile_inf where id=?";
 		String friendsId = (String) jdbcTemplate.queryForObject(sql,new Object[] {userid},String.class);
-//		char[] ref = friendsId.toCharArray();
 		int r = 0;
 		for(int j = 0;j<friendsId.length();j++) {
             if(friendsId.charAt(j)==','){
@@ -81,21 +80,26 @@ public class SQLiteDAO implements ProfileDAO{
            }
         }
 		r++;
-		String[] res = new String[r];
-        int s=0;
-		for(int j = 0;j<friendsId.length();j++) {
-                if(friendsId.charAt(j)==','){
-                s++;
-                continue;
-                }
-                else{
-                res[s]+=friendsId.charAt(j);
-                }
-		}
+		String res[] = new String[6];
+        int c = 0;
+        int k = 0;
+        for (int i = 0; i < friendsId.length(); i++) {
+            if(friendsId.charAt(i) == ','){
+            c++;
+            k=0;
+            }else{
+            if(k == 0){
+            	res[c]  = String.valueOf(friendsId.charAt(i));
+            k++;
+            }else{
+            	res[c] += String.valueOf(friendsId.charAt(i));
+            k++;
+            }
+          }
+        }
 		Integer fId = friendId;
 		for(int j = 0;j<res.length;j++) {
-			String ss = String.valueOf(res[j]);
-            if(ss.equals(fId.toString())){
+            if(res[j].equals(fId.toString())){
             	return true;
             }  
 	}
@@ -130,18 +134,24 @@ public class SQLiteDAO implements ProfileDAO{
            }
         }
 		r++;
-		String[] res = new String[r];
-        int s=0;
-		for(int j = 0;j<friendsId.length();j++) {
-                if(friendsId.charAt(j)==','){
-                s++;
-                continue;
-                }
-                else{
-                res[s]+=friendsId.charAt(j);
-                }
-		}
-		String sqlf="select * from admin_spread.profile_inf where ";
+		String res[] = new String[6];
+        int c = 0;
+        int j = 0;
+        for (int i = 0; i < friendsId.length(); i++) {
+            if(friendsId.charAt(i) == ','){
+            c++;
+            j=0;
+            }else{
+            if(j == 0){
+            	res[c]  = String.valueOf(friendsId.charAt(i));
+            j++;
+            }else{
+            	res[c] += String.valueOf(friendsId.charAt(i));
+            j++;
+            }
+            }
+        }
+		String sqlf = "select * from admin_spread.profile_inf where ";
 		int i = 0;
 		while(i<res.length) {
 			if(i==0) {
