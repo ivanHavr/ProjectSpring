@@ -73,23 +73,23 @@ public class SQLiteDAO implements ProfileDAO{
 	public boolean checkFriend(int userid, int friendId) {
 		String sql = "select friends_id from admin_spread.profile_inf where id=?";
 		String friendsId = (String) jdbcTemplate.queryForObject(sql,new Object[] {userid},String.class);
-		char[] ref = friendsId.toCharArray();
+//		char[] ref = friendsId.toCharArray();
 		int r = 0;
-		for(int j = 0;j<ref.length;j++) {
-            if(ref[j]==','){
+		for(int j = 0;j<friendsId.length();j++) {
+            if(friendsId.charAt(j)==','){
             r++; 
            }
         }
 		r++;
-		char[] res =new char[r];
+		String[] res = new String[r];
         int s=0;
-		for(int j = 0;j<ref.length;j++) {
-                if(ref[j]==','){
+		for(int j = 0;j<friendsId.length();j++) {
+                if(friendsId.charAt(j)==','){
                 s++;
                 continue;
                 }
                 else{
-                res[s]+=ref[j];
+                res[s]+=friendsId.charAt(j);
                 }
 		}
 		Integer fId = friendId;
@@ -123,23 +123,22 @@ public class SQLiteDAO implements ProfileDAO{
 		if(friendsId == null || friendsId.equals("0")) {
 			return new ArrayList<User>();
 		}else {
-		char[] ref = friendsId.toCharArray();
 		int r = 0;
-		for(int j = 0;j<ref.length;j++) {
-            if(ref[j]==','){
-            r++;
-            }
-	}
+		for(int j = 0;j<friendsId.length();j++) {
+            if(friendsId.charAt(j)==','){
+            r++; 
+           }
+        }
 		r++;
-		char[] res =new char[r];
+		String[] res = new String[r];
         int s=0;
-		for(int j = 0;j<ref.length;j++) {
-                if(ref[j]==','){
+		for(int j = 0;j<friendsId.length();j++) {
+                if(friendsId.charAt(j)==','){
                 s++;
                 continue;
                 }
                 else{
-                res[s]+=ref[j];
+                res[s]+=friendsId.charAt(j);
                 }
 		}
 		String sqlf="select * from admin_spread.profile_inf where ";
