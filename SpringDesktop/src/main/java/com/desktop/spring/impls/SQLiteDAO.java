@@ -143,10 +143,10 @@ public class SQLiteDAO implements ProfileDAO{
 		int i = 0;
 		while(i<res.length) {
 			if(i==0) {
-				sqlf +="user_id="+res[i]+" ";
+				sqlf +="id="+res[i]+" ";
 				i++;
 			}else {
-			sqlf +="or user_id="+res[i]+" ";
+			sqlf +="or id="+res[i]+" ";
 			i++;
 			}
 		}
