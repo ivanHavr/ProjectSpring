@@ -113,7 +113,7 @@ public class SQLiteDAO implements ProfileDAO{
 	}
 	@Override
 	public String getLastMesseges(int sender_id, int recipient_id) {
-		String sqlf = "SELECT * FROM admin_spread.messages WHERE id=(SELECT MAX(id) FROM messages) and sender_id=? and recipient_id=?";
+		String sqlf = "SELECT * FROM admin_spread.messages WHERE id=(SELECT MAX(id) FROM admin_spread.messages) and sender_id=? and recipient_id=?";
 		return jdbcTemplate.queryForObject(sqlf,new Object[] {sender_id,recipient_id},new StringRowMapper());
 	}
 	@Override
