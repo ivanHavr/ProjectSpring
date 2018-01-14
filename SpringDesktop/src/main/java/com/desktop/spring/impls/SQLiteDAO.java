@@ -80,7 +80,7 @@ public class SQLiteDAO implements ProfileDAO{
            }
         }
 		r++;
-		String res[] = new String[6];
+		String res[] = new String[r];
         int c = 0;
         int k = 0;
         for (int i = 0; i < friendsId.length(); i++) {
@@ -134,7 +134,7 @@ public class SQLiteDAO implements ProfileDAO{
            }
         }
 		r++;
-		String res[] = new String[6];
+		String res[] = new String[r];
         int c = 0;
         int j = 0;
         for (int i = 0; i < friendsId.length(); i++) {

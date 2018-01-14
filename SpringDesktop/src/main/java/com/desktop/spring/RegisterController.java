@@ -54,9 +54,9 @@ public class RegisterController {
 	@RequestMapping(value = "/uploadPhoto", method = RequestMethod.POST)
 	public ModelAndView uploadPhoto(@RequestParam("photo") MultipartFile file,HttpSession httpSession) {
 		String name = null;
-		if(!file.isEmpty()) {
+		User user = new User();
+		if(!file.isEmpty() || file!=null) {
 			try {
-				User user = new User();
 				byte[] bytes = file.getBytes();
 				name = file.getOriginalFilename();
 				String appPath = httpSession.getServletContext().getRealPath("");
@@ -75,7 +75,9 @@ public class RegisterController {
 //				return "You failed to upload"+ name + "=>" + e.getMessage();
 			}
 		}else {
-//			return "You failed to upload "+ name + "because the file was empty";
+			user = (User)httpSession.getAttribute("user");
+			user.setPathPhoto("/resources/images/persona.png");
+			return new ModelAndView("redirect:/Complete","user",user);
 		} 
 		return new ModelAndView("redirect:/Complete");
 	}
