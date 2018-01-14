@@ -207,7 +207,7 @@ public class SQLiteDAO implements ProfileDAO{
  		MessageBody messageBody = new MessageBody();
  		messageBody.setSenderId(arg0.getInt("sender_id"));
  		messageBody.setRecipientId(arg0.getInt("recipient_Id"));
- 		messageBody.setText(arg0.getString("text"));		
+ 		messageBody.setText(arg0.getString("text"));
  		return messageBody;
  	}
   }

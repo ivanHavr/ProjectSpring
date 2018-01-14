@@ -2,6 +2,7 @@ package com.desktop.spring.objects;
 
 import java.time.LocalDateTime;
 
+
 public class MessageBody {
 	private String senderName;
 	private String recipientName;
