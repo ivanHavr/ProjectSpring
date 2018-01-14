@@ -52,7 +52,7 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(value = "/uploadPhoto", method = RequestMethod.POST)
-	public ModelAndView uploadPhoto(@RequestParam("photo") MultipartFile file,HttpSession httpSession) {
+	public ModelAndView uploadPhoto(@RequestParam("photo") MultipartFile file, HttpSession httpSession) {
 		String name = null;
 		User user = new User();
 		if(!file.isEmpty() || file!=null) {
@@ -62,6 +62,7 @@ public class RegisterController {
 				if(name == null || name.isEmpty()) {
 					user = (User)httpSession.getAttribute("user");
 					user.setPathPhoto("/resources/images/persona.png");
+					sqliteDAO.insertPathPhoto(user);
 					return new ModelAndView("redirect:/Complete","user",user);
 				}
 				String appPath = httpSession.getServletContext().getRealPath("");
