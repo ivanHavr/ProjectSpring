@@ -2,6 +2,7 @@ package com.desktop.spring;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -124,7 +125,7 @@ public class HomeController {
 		User Iam = (User)httpSession.getAttribute("userself");
 		User Add = (User)httpSession.getAttribute("userON");
 		sqliteDAO.sendMessage(Iam.getId(), Add.getId(), message);
-		response.setCharacterEncoding("iso-8859-1");
+		response.setHeader("Content-Type", "text/html; charset=UTF-8");
 		return message;
 	}
 	@RequestMapping(value = "/getMessage",  method = RequestMethod.POST)
@@ -133,7 +134,7 @@ public class HomeController {
 		User Add = (User)httpSession.getAttribute("userON");
 		List<MessageBody> result = sqliteDAO.getMesseges(Iam.getId(), Add.getId());
 		Gson gson = new Gson();
-		response.setCharacterEncoding("iso-8859-1");
+		response.setHeader("Content-Type", "text/html; charset=UTF-8");
 		return gson.toJson(result);
 	}
 	

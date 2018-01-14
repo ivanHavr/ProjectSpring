@@ -123,7 +123,7 @@ function selectFriend(user,iam){
 			$.ajax({
 				url:'getMessage',
 				method:'POST',
-				mimeType:"text/html; charset=iso-8859-1",
+				contentType:"text/html; charset=UTF-8",
 				success: function(data){
 					var res = JSON.parse(data);
 					dataMes = res.length;
@@ -204,7 +204,7 @@ function sendMessege(){
 			 console.log("pre ajax");
 			    $.ajax({
 			    	url:'sendMessage',
-			    	mimeType:"text/html; charset=iso-8859-1",
+			    	mimeType:"text/html; charset=UTF-8",
 					data:({message:$('#pool_mess').val()}),
 					method:'POST',
 					success: function(data){
@@ -392,7 +392,7 @@ function selectVideo(e){
 	</div>
 	<div>
 	<div id="wt_mess">
-		<input type="text" placeholder="send a message..." id="pool_mess" onkeyup="sendMessege()"/>	
+		<input type="text"  placeholder="send a message..." id="pool_mess" onkeyup="sendMessege()"/>	
 <!-- 		Test version: selection video,audio,pic and put to google and youtube...return json type -->
 	</div>
 	<div id="selectDiv">
