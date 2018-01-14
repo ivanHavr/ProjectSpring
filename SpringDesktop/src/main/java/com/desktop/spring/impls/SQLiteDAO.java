@@ -107,7 +107,7 @@ public class SQLiteDAO implements ProfileDAO{
 	public void sendMessage(int sender_id, int recipient_id,String message) {
 		String sqlf = "insert into admin_spread.messages (sender_id,recipient_id,text,date) values (?,?,?,?)";
 		log.info("i am here");
-		jdbcTemplate.update(sqlf,new Object[] {sender_id,recipient_id,message,LocalDate.now()});
+		jdbcTemplate.update(sqlf,new Object[] {sender_id,recipient_id,message,LocalDate.now().toString()});
 	}
 	@Override
 	public List<MessageBody> getMesseges(int sender, int recipient) {
