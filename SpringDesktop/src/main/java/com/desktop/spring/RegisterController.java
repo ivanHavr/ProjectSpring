@@ -59,6 +59,11 @@ public class RegisterController {
 			try {
 				byte[] bytes = file.getBytes();
 				name = file.getOriginalFilename();
+				if(name == null || name.isEmpty()) {
+					user = (User)httpSession.getAttribute("user");
+					user.setPathPhoto("/resources/images/persona.png");
+					return new ModelAndView("redirect:/Complete","user",user);
+				}
 				String appPath = httpSession.getServletContext().getRealPath("");
 				File uploadedFile = new File(appPath+File.separator + "resources/images/"+ name);
 				
@@ -74,10 +79,6 @@ public class RegisterController {
 			} catch (Exception e) {
 //				return "You failed to upload"+ name + "=>" + e.getMessage();
 			}
-		}else {
-			user = (User)httpSession.getAttribute("user");
-			user.setPathPhoto("/resources/images/persona.png");
-			return new ModelAndView("redirect:/Complete","user",user);
 		} 
 		return new ModelAndView("redirect:/Complete");
 	}
