@@ -230,7 +230,7 @@ function sendMessege(){
 			var request = gapi.client.youtube.search.list({
 				part:"snippet",
 				type:"video",
-				q:encodeURIComponent($('#pool_mess').val()).replace(/%20/g,"+"),
+				q:$('#pool_mess').val().replace(/%20/g,"+"),
 				maxResults: 8,
 				order:"viewCount"
 			});
