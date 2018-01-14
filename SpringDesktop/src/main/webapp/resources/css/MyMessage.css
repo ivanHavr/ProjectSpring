@@ -52,14 +52,16 @@ body{
 #nameUser{
 	position:absolute;
 	color: white;
-	margin-left: 20px;
     margin-top:5px;
 }
 #SnameUser{
 	margin-top:5px;
 	position:absolute;
 	color: white;
-	margin-left: 60px;
+}
+#NameSur{
+	position:absolute;
+	margin-top:5px;
 }
 #logOut{
 	position: absolute;

@@ -347,8 +347,10 @@ function selectVideo(e){
 	</div>
 	<div id="whoLog">
 	<img id="imgUser" src="${pageContext.request.contextPath}${user.pathPhoto}">
+	<div id="NameSur">
 	<span id="nameUser">${user.name}</span>
     <span id="SnameUser">${user.surname}</span><br>
+    </div>
     <a href="logOut"><button id="logOut">Sign out</button></a>
 	</div>
 <div id="menu">
