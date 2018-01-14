@@ -139,7 +139,7 @@ public class SQLiteDAO implements ProfileDAO{
                 res[s]+=ref[j];
                 }
 		}
-		String sqlf="select * from profile_inf where ";
+		String sqlf="select * from admin_spread.profile_inf where ";
 		int i = 0;
 		while(i<res.length) {
 			if(i==0) {
