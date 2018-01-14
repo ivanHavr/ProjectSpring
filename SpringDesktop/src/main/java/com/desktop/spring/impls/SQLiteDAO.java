@@ -30,13 +30,13 @@ public class SQLiteDAO implements ProfileDAO{
 
 	@Override
 	public void insert(User user) {
-		String sql = "insert into profile_inf (name,surname,password,city,gender,age,status,email,birthdate) values (?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into admin_spread.profile_inf (name,surname,password,city,gender,age,status,email,birthdate) values (?,?,?,?,?,?,?,?,?)";
 		jdbcTemplate.update(sql,new Object[] {user.getName(),user.getSurname(),
 				user.getPassword(),user.getCity(),user.getGender(),user.getAge(),user.getStatus(),user.getEmail(),user.getBirthdate()});
 	}
 	@Override
 	public void insertPathPhoto(User user) {
-		String sql = "Update profile_inf set path_photo = ? Where email = ?";
+		String sql = "Update admin_spread.profile_inf set path_photo = ? Where email = ?";
 		jdbcTemplate.update(sql,new Object[] {user.getPathPhoto(),user.getEmail()});
 	}
 
@@ -45,33 +45,33 @@ public class SQLiteDAO implements ProfileDAO{
 	}
 	@Override
 	public void delete(int id) {
-		String sql = "delete from profile_inf where id=?";
+		String sql = "delete from admin_spread.profile_inf where id=?";
 		jdbcTemplate.update(sql,id);	
 	}
 	@Override
 	public User getUserByEmail(String email) {
-		String sql = "Select * from profile_inf where email=?";
+		String sql = "Select * from admin_spread.profile_inf where email=?";
 		return jdbcTemplate.queryForObject(sql,new Object[] {email},new UserRowMapper());
 	}
 	@Override
 	public User getUserById(int id) {
-		String sql = "select * from profile_inf where id=?";
+		String sql = "select * from admin_spread.profile_inf where id=?";
 		return jdbcTemplate.queryForObject(sql,new Object[] {id},new UserRowMapper());	
 	}
 	@Override
 	public User getUserByName(String name) {
-		String sql = "select * from profile_inf where name=?";
+		String sql = "select * from admin_spread.profile_inf where name=?";
 		return jdbcTemplate.queryForObject(sql,new Object[] {name},new UserRowMapper());	
 	}
 	
 	@Override
 	public List<User> getUserBySearch(String name) {
-		String sql = "select * from profile_inf where name like ?";
+		String sql = "select * from admin_spread.profile_inf where name like ?";
 		return jdbcTemplate.query(sql,new Object[] {"%"+name+"%"},new UserRowMapper());	
 	}
 	@Override
 	public boolean checkFriend(int userid, int friendId) {
-		String sql = "select friends_id from profile_inf where id=?";
+		String sql = "select friends_id from admin_spread.profile_inf where id=?";
 		String friendsId = (String) jdbcTemplate.queryForObject(sql,new Object[] {userid},String.class);
 		char[] ref = friendsId.toCharArray();
 		int r = 0;
@@ -103,22 +103,22 @@ public class SQLiteDAO implements ProfileDAO{
 	}
 	@Override
 	public void sendMessage(int sender_id, int recipient_id,String message) {
-		String sqlf = "insert into messages (sender_id,recipient_id,text,date) values (?,?,?,?)";
+		String sqlf = "insert into admin_spread.messages (sender_id,recipient_id,text,date) values (?,?,?,?)";
 		jdbcTemplate.update(sqlf,new Object[] {sender_id,recipient_id,message,LocalDateTime.now()});
 	}
 	@Override
 	public List<MessageBody> getMesseges(int sender, int recipient) {
-		String sqlf = "SELECT * FROM messages where sender_id =? and recipient_id =?  or sender_id =? and recipient_id =? order by date";
+		String sqlf = "SELECT * FROM admin_spread.messages where sender_id =? and recipient_id =?  or sender_id =? and recipient_id =? order by date";
 		return jdbcTemplate.query(sqlf,new Object[] {sender,recipient,recipient,sender},new StringMessageRowMapper());	
 	}
 	@Override
 	public String getLastMesseges(int sender_id, int recipient_id) {
-		String sqlf = "SELECT * FROM messages WHERE id=(SELECT MAX(id) FROM messages) and sender_id=? and recipient_id=?";
+		String sqlf = "SELECT * FROM admin_spread.messages WHERE id=(SELECT MAX(id) FROM messages) and sender_id=? and recipient_id=?";
 		return jdbcTemplate.queryForObject(sqlf,new Object[] {sender_id,recipient_id},new StringRowMapper());
 	}
 	@Override
 	public List<User> getUserListById(int id) {
-		String sql = "select friends_id from profile_inf where id=?";
+		String sql = "select friends_id from admin_spread.profile_inf where id=?";
 		String friendsId = (String) jdbcTemplate.queryForObject(sql,new Object[] {id},String.class);
 		char[] ref = friendsId.toCharArray();
 		int r = 0;
@@ -154,21 +154,21 @@ public class SQLiteDAO implements ProfileDAO{
 	}
 	@Override
 	public List<User> getUserList() {
-		String sqlf = "select * from profile_inf";
+		String sqlf = "select * from admin_spread.profile_inf";
 		return jdbcTemplate.query(sqlf,new UserRowMapper());
 	}
 	
 	@Override
 	public void addFriend(int id, int idFriend) {
-		String sql = "select friends_id from profile_inf where id=?";
+		String sql = "select friends_id from admin_spread.profile_inf where id=?";
 		String friendsId = (String) jdbcTemplate.queryForObject(sql,new Object[] {id},String.class);
 		friendsId+=","+String.valueOf(idFriend);
-		String sqlf = "update profile_inf set friends_id=?  where id=?";
+		String sqlf = "update admin_spread.profile_inf set friends_id=?  where id=?";
 		jdbcTemplate.update(sqlf,new Object[] {friendsId,id});	
 	}
 	@Override
 	public void updateOnline(int id,boolean online) {
-		String sqlf = "update profile_inf set online=?  where id=?";
+		String sqlf = "update admin_spread.profile_inf set online=?  where id=?";
 		jdbcTemplate.update(sqlf,new Object[] {online,id});	
 	}
  private static final class UserRowMapper implements RowMapper<User>
@@ -177,7 +177,7 @@ public class SQLiteDAO implements ProfileDAO{
 	@Override
 	public User mapRow(ResultSet arg0, int arg1) throws SQLException {
 		User user = new User();
-		user.setId(arg0.getInt("user_id"));
+		user.setId(arg0.getInt("id"));
 		user.setName(arg0.getString("name"));
 		user.setSurname(arg0.getString("surname"));
 		user.setPassword(arg0.getString("password"));
