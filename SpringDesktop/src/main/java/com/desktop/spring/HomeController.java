@@ -128,11 +128,12 @@ public class HomeController {
 		return message;
 	}
 	@RequestMapping(value = "/getMessage",  method = RequestMethod.POST)
-	@ResponseBody public String getMessage(HttpSession httpSession) {
+	@ResponseBody public String getMessage(HttpSession httpSession, HttpServletResponse response) {
 		User Iam = (User)httpSession.getAttribute("userself");
 		User Add = (User)httpSession.getAttribute("userON");
 		List<MessageBody> result = sqliteDAO.getMesseges(Iam.getId(), Add.getId());
 		Gson gson = new Gson();
+		response.setCharacterEncoding("UTF-8");
 		return gson.toJson(result);
 	}
 	
