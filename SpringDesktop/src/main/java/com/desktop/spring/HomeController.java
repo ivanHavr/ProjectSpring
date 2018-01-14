@@ -2,6 +2,8 @@ package com.desktop.spring;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -118,10 +120,11 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/sendMessage",  method = RequestMethod.POST)
-	@ResponseBody public String sendMessage(@RequestParam("message") String message,HttpSession httpSession) {
+	@ResponseBody public String sendMessage(@RequestParam("message") String message,HttpSession httpSession,HttpServletResponse response) {
 		User Iam = (User)httpSession.getAttribute("userself");
 		User Add = (User)httpSession.getAttribute("userON");
 		sqliteDAO.sendMessage(Iam.getId(), Add.getId(), message);
+		response.setCharacterEncoding("UTF-8");
 		return message;
 	}
 	@RequestMapping(value = "/getMessage",  method = RequestMethod.POST)
