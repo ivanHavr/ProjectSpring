@@ -189,14 +189,17 @@ var clickOn = false;
 var clickIndex;
 function sendMessege(){
 	document.onkeyup = function (e) {
+		console.log("before invoke send");
 		//variable for selection type message
 		var select = $('#select').val();
 		//choice
 		switch(select){
 		case "Message":
+			console.log("in select message");
 		 $(".resultSearch").fadeOut(250,0);
 	     e = e || window.event;
-		 if (e.keyCode === 13 && $('#select').val() == "Message") {
+		 if (e.keyCode === 13) {
+			 console.log("pre ajax");
 			    $.ajax({
 			    	url:'sendMessage',
 					data:({message:$('#pool_mess').val()}),
@@ -207,10 +210,10 @@ function sendMessege(){
 	                    s +="<div id=\"messRUser\">"+res+"</div>";
 	                    $('#messRUser').css({"padding-left":""+((res.length*1,5)-res.length)+"px"});
 						$("#mees").append(s);
-						alert(s);
 						$('#pool_mess').val('');
 					}
 			});
+			    console.log("post ajax");
 	      }
 		break;
 		case "Video":
