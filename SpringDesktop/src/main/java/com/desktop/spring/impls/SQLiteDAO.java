@@ -30,7 +30,7 @@ public class SQLiteDAO implements ProfileDAO{
 
 	@Override
 	public void insert(User user) {
-		String sql = "insert into admin_spread.profile_inf (name,surname,password,city,gender,age,status,email,birthdate,friends_id) values (?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into admin_spread.profile_inf (name,surname,password,city,gender,age,status,email,birthdate,friends_id) values (?,?,?,?,?,?,?,?,?,?)";
 		jdbcTemplate.update(sql,new Object[] {user.getName(),user.getSurname(),
 				user.getPassword(),user.getCity(),user.getGender(),user.getAge(),user.getStatus(),user.getEmail(),user.getBirthdate(),""});
 	}
