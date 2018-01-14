@@ -1,0 +1,75 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	padding:0;
+	background: #dadee5;
+}
+/* main menu logo and header*/
+#header{
+	width: 100%;
+	background: rgba(18, 3, 64, 0.66);
+	height: 70px;
+	color:white;
+	text-align: center;	
+}
+a{
+	text-decoration: none;
+	color: white;
+	
+}
+#logo{
+	font-family:serif;
+	font-weight:normal;
+	font-size: 46px;
+}
+
+/* Message context left and right side*/
+#friendContext{
+	float:left;
+	background: rgba(18, 3, 64, 0.66);
+	height:750px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+#fr_inner{
+	background: #dadee5;
+	width: 40%;
+	height:550px; 
+	margin: 0 auto;
+	margin-top: 70px;
+}
+h2{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	color:rgba(18, 3, 64, 0.66);
+	background: #bdbabe;
+}
+img{
+	margin-top:20px;
+    margin-bottom:30px;
+	max-height: 200px;
+	max-width: 200px;
+}
+.charac{
+	font-size: 25px;
+	font-family: serif;
+	padding-bottom: 20px;
+}
+#returnB{
+	margin-top: 100px;
+	background: rgba(18, 3, 64, 0.66);
+	border: 0;
+	font-size: 25px;
+	padding: 5px;
+	color:white;
+	font-family: serif;
+	
+}
+#returnB:hover{
+	transform:scale(1.05);
+	background:rgba(217, 145, 242, 0.6);
+}
+

@@ -1,0 +1,299 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+	padding:0;
+	background: #dadee5;
+}
+/* main menu logo and header*/
+#header{
+	width: 100%;
+	background: rgba(18, 3, 64, 0.66);
+	height: 70px;
+	color:white;	
+}
+#search{
+	display: inline-block;
+	margin-left: 101px;
+	position: relative;
+}
+.listSearch a{
+	color: black;
+	margin-left: 5px;
+}
+#blockSearch{
+	background: white;
+	color: black;
+	width: 200px;
+	padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid darkgray;
+ 	font-family: cursive;
+}
+#blockSearch:hover{
+	cursor: pointer;
+	background: #979199;
+}
+#searchUser{
+	width: 200px;
+	border-radius: 10px 10px 0 0;
+}
+#whoLog{
+	display: inline-block;
+	width: 100px;
+}
+#imgUser{
+	margin:0 0 0 50px;
+	max-width: 30px;
+	max-height: 30px;
+	position: relative;
+	
+}
+#nameUser{
+	position:absolute;
+	color: white;
+	margin-left: 20px;
+    margin-top:5px;
+}
+#SnameUser{
+	margin-top:5px;
+	position:absolute;
+	color: white;
+	margin-left: 60px;
+}
+#logOut{
+	position: absolute;
+	margin-left: 120px;
+	background:rgba(114, 1, 153, 0.6);
+	border:none;
+	color:white;
+	font-family: serif;
+}
+#logOut:hover{	
+	background:rgba(217, 145, 242, 0.6);	
+}
+#retser{
+	position: absolute;
+}
+#menu{
+	float:right;
+	margin: 20px 10px 0 0;
+	
+}
+ul{
+	list-style-type: none;
+	padding:0;
+	margin: 0;
+	
+}
+#menu li{
+	display: inline-block;
+	margin-left: 60px;
+	margin-right: 40px;
+	font-size: 17px;
+	transition:transform 0.3s;
+	margin-bottom: 20px;
+	
+}
+#menu li:hover{
+	transform:scale(1.2);
+}
+#menu a{
+	text-decoration: none;
+	color: white;
+	font-family: monospace;
+}
+a{
+	text-decoration: none;
+	color: white;
+	
+}
+#logo{
+	margin-left:37px;
+	font-family:serif;
+	font-weight:normal;
+	font-size: 46px;
+}
+#logo span{
+	font-style: italic;
+	font-family:monospace;
+	font-size: 48px;
+}
+/* Message context left and right side*/
+#friendContext{
+	float:left;
+	background: rgba(18, 3, 64, 0.66);
+	height:734px;
+	width: 30%;
+	margin: 0;
+	padding: 0;
+}
+#fr_inner{
+	background: #dadee5;
+	height: 90%;
+	width: 80%;
+	margin-left:20px;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); 
+	
+}
+#context{
+	float:right;
+	height:734px;
+	width: 70%;
+	background: rgba(18, 3, 64, 0.66);
+}
+#message{
+	background: #dadee5;
+	height: 90%;
+	width: 97%;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.userss{
+	cursor: pointer;
+}
+
+img{
+	position:relative;
+	max-height: 50px;
+	max-width: 50px;
+	border-radius:50%;
+	margin-left: 10px; 
+}
+.divUser{
+	color:white;
+	border-bottom: 1px solid darkgray;
+	padding: 5px 0 5px 0;
+}
+.divUser:hover{
+	cursor: pointer;
+	background: #979199;
+}
+.nameM{
+	margin-left: 10px;
+	margin-top:10px;
+	position: absolute;
+	font-family: sans-serif;
+	color: black;
+	
+}
+.nameMa{
+	margin-left: 70px;
+	margin-top:10px;
+	position: absolute;
+	font-family: sans-serif;
+	color: black;
+}
+h4{
+	margin: 0;
+	padding: 0;
+	color: white;
+	text-align: center;
+	font-family: cursive;
+	background:#979199;
+}
+hr{
+	padding: 0;
+	margin: 0;
+}
+/*Right sige for whiting message config input */
+#wt_mess{
+	display: inline;
+	font-size: 0;
+}
+#w_tof{
+	margin-left:450px;
+	font-family: cursive;
+	color:white;
+}
+#W_tofDiv{
+	background:#979199;
+}
+#mees{
+	width: 100%;
+	height: 656px; 
+}
+#pool_mess{
+	width: 970px;
+	height: 48px;
+	font-size: 18px;
+	position: relative;
+}
+#mes_right{
+	width: 100%;
+	overflow: scroll;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	height: 590px;
+}
+#messRUser{
+	background: #c0c0c0;
+	border-radius: 20px 0 20px 20px;
+	float: right;
+	font-size: 25px;
+	margin-top:10px;
+	margin-left: 900px;
+	margin-bottom: 20px;
+	margin-right: 10px;
+	padding: 5px;
+	 
+}
+#messRFriend{
+	margin-top:10px;
+	background: #6c5cfe;
+	border-radius: 0 20px 20px 20px;
+	float: left;
+	font-size: 25px;
+	margin-right: 900px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	padding: 5px;
+}
+#DefInf{
+	margin-left:370px;
+	margin-top: 310px;
+}
+#DefInf span{
+	font-family: cursive;
+	font-size: 20px;
+}
+/* Test version: selection video,audio,pic and put to google and youtube...return json type */
+#selectDiv{
+	display: inline-block;
+	position: absolute;
+}
+#select{
+	width: 116px;
+	height: 48px;
+}
+/* result search for youtube video , google picture , gif , audio */
+
+.resultSearch{
+	top: 53.7%;
+	position: absolute;
+	width:1085px;
+	height: 250px;
+	border-top:1px solid darkgray;
+	display: inline-block;
+	overflow: auto;
+	white-space: nowrap;
+	background: #dadee5;
+	opacity: 0;
+}
+/* this style used in javascript for slider of video */
+
+/* .resultSepar{ */
+/* 	display: inline-block; */
+/* 	margin:30px 30px 0 20px; */
+/* 	padding: 10px 10px 5px 10px; */
+/* 	background: #7b8184; */
+	
+/* } */
+/* #resultSepar:hover ,i:hover { */
+/* 	background: #3a3d3d; */
+/* 	color:#00df00; */
+/* } */
+/* i{ */
+/* 	color: white; */
+/* 	float: right; */
+/* 	margin-top: 20px; */
+/* } */

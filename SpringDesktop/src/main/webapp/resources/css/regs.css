@@ -1,0 +1,99 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	padding:0;
+	background: #dadee5;
+}
+/* main menu logo and header*/
+#header{
+	width: 100%;
+	background: rgba(18, 3, 64, 0.66);
+	height: 70px;
+	color:white;
+	text-align: center;	
+}
+a{
+	text-decoration: none;
+	color: white;
+	
+}
+#logo{
+	font-family:serif;
+	font-weight:normal;
+	font-size: 46px;
+}
+
+/* Message context left and right side*/
+#friendContext{
+	float:left;
+	background: rgba(18, 3, 64, 0.66);
+	height:750px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+#fr_inner{
+	background: #dadee5;
+	width: 40%;
+	height:550px; 
+	margin: 0 auto;
+	margin-top: 70px;
+}
+#context{
+	margin:0;
+	padding:0;
+	width:100%;
+}
+#divButton{
+	margin-top: 35px;
+}
+#sbButton{
+	background: rgba(18, 3, 64, 0.66);
+	border: 0;
+	font-family:  sans-serif;
+	font-size: 15px;
+	color:white;
+	width: 100px;
+	height: 30px;
+	transition:transform 0.3s;
+}
+#sbButton:hover{
+	transform:scale(1.05);
+	background:rgba(217, 145, 242, 0.6);
+}
+.NameInput input{
+	margin-left: 65px;
+	margin-top: 40px;
+	margin-bottom:10px;
+	padding: 5px;
+	font-family: sans-serif;
+}
+h2{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	color:rgba(18, 3, 64, 0.66);
+	background: #bdbabe;
+}
+.errore{
+	position:absolute;
+	color:red;
+	margin-left: 70px;
+}
+#check{
+	position:absolute;
+	margin-left: 65px;
+	font-weight:bold;
+}
+#confirm{
+	display: none;
+	color:green;
+	font-weight:bold;
+	margin-left: 65px;
+	position:absolute;
+}
+
+
+
+

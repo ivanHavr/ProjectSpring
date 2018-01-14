@@ -1,0 +1,177 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	padding:0;
+	background: #dadee5;
+}
+/* main menu logo and header*/
+#header{
+	width: 100%;
+	background: rgba(18, 3, 64, 0.66);
+	height: 70px;
+	color:white;	
+}
+#search{
+	display: inline-block;
+	margin-left: 68px;
+	position: relative;
+}
+.listSearch a{
+	color: black;
+	margin-left: 5px;
+}
+#blockSearch{
+	background: white;
+	color: black;
+	width: 200px;
+	padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid darkgray;
+ 	font-family: cursive;
+}
+#searchUser{
+	width: 200px;
+	border-radius: 10px 10px 0 0;
+}
+#whoLog{
+	display: inline-block;
+	width: 100px;
+}
+#imgUser{
+	margin:0 0 0 50px;
+	max-width: 30px;
+	max-height: 30px;
+	position: relative;
+	
+}
+#nameUser{
+	position:absolute;
+	color: white;
+	margin-left: 20px;
+    margin-top:5px;
+}
+#SnameUser{
+	margin-top:5px;
+	position:absolute;
+	color: white;
+	margin-left: 60px;
+}
+#logOut{
+	position: absolute;
+	margin-left: 120px;
+	background:rgba(114, 1, 153, 0.6);
+	border:none;
+	color:white;
+	font-family: serif;
+}
+#logOut:hover{	
+	background:rgba(217, 145, 242, 0.6);	
+}
+#retser{
+	position: absolute;
+}
+#menu{
+	float:right;
+	margin: 20px 10px 0 0;
+	
+}
+ul{
+	list-style-type: none;
+	padding:0;
+	margin: 0;
+	
+}
+#menu li{
+	display: inline-block;
+	margin-left: 60px;
+	margin-right: 40px;
+	font-size: 17px;
+	transition:transform 0.3s;
+	margin-bottom: 20px;
+	
+}
+#menu li:hover{
+	transform:scale(1.2);
+}
+#menu a{
+	text-decoration: none;
+	color: white;
+	font-family: monospace;
+}
+a{
+	text-decoration: none;
+	color: white;
+	
+}
+#logo{
+	margin-left:20px;
+	font-family:serif;
+	font-weight:normal;
+	font-size: 46px;
+}
+/* Message context left and right side*/
+#friendContext{
+	float:left;
+	background: rgba(18, 3, 64, 0.66);
+	height:1000px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+#fr_inner{
+	background: #dadee5;
+	width: 30%; 
+	margin: 0 auto;
+	margin-top: 70px;
+	
+}
+img{
+	position:relative;
+	max-height: 50px;
+	max-width: 50px;
+	border-radius:50%;
+	margin-left: 10px; 
+}
+.nameUserLeft{
+font-family: sans-serif;
+font-size: 23px;
+margin-top: 50px;
+margin-right: 10px;	
+}
+.staticD{
+	float: left;
+}
+#infD{
+	margin-top:100px;
+	text-align: right;
+}
+#AddFriend{
+	background:rgba(114, 1, 153, 0.6);
+	border:none;
+	color:white;
+	font-family: serif;
+	font-size:15px;
+	width: 100px;
+	height: 30px;
+	display: none;
+}
+#AddFriend:hover{
+	background:rgba(217, 145, 242, 0.6);
+}
+#imgUnUser{
+	max-height: 100px;
+	max-width: 100px;
+	border-radius:50%;
+	padding: 0;
+	margin: 0;
+	margin-top: 20px;
+}
+#valid{
+	color: rgba(18, 3, 64, 0.66);
+	display: none;
+}
+
+
+
+
