@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-        pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=Windows-1251"
+        pageEncoding="Windows-1251"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1251">
 <title>Message Page</title>
 <link href="<c:url value="/resources/css/MyMessage.css" />" rel="stylesheet" />
 <link href="<c:url value="/resources/font/font-awesome-4.7.0/css/font-awesome.min.css"/>" rel="stylesheet" />
