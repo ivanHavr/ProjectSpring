@@ -30,9 +30,9 @@ public class SQLiteDAO implements ProfileDAO{
 
 	@Override
 	public void insert(User user) {
-		String sql = "insert into admin_spread.profile_inf (name,surname,password,city,gender,age,status,email,birthdate) values (?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into admin_spread.profile_inf (name,surname,password,city,gender,age,status,email,birthdate,friends_id) values (?,?,?,?,?,?,?,?,?)";
 		jdbcTemplate.update(sql,new Object[] {user.getName(),user.getSurname(),
-				user.getPassword(),user.getCity(),user.getGender(),user.getAge(),user.getStatus(),user.getEmail(),user.getBirthdate()});
+				user.getPassword(),user.getCity(),user.getGender(),user.getAge(),user.getStatus(),user.getEmail(),user.getBirthdate(),""});
 	}
 	@Override
 	public void insertPathPhoto(User user) {
@@ -120,7 +120,7 @@ public class SQLiteDAO implements ProfileDAO{
 	public List<User> getUserListById(int id) {
 		String sql = "select friends_id from admin_spread.profile_inf where id=?";
 		String friendsId = (String) jdbcTemplate.queryForObject(sql,new Object[] {id},String.class);
-		if(friendsId == null) {
+		if(friendsId == null || friendsId.isEmpty()) {
 			return new ArrayList<User>();
 		}else {
 		char[] ref = friendsId.toCharArray();
@@ -166,7 +166,11 @@ public class SQLiteDAO implements ProfileDAO{
 	public void addFriend(int id, int idFriend) {
 		String sql = "select friends_id from admin_spread.profile_inf where id=?";
 		String friendsId = (String) jdbcTemplate.queryForObject(sql,new Object[] {id},String.class);
+		if(friendsId == null || friendsId.isEmpty()) {
+			friendsId = String.valueOf(idFriend);
+		}else {
 		friendsId+=","+String.valueOf(idFriend);
+		}
 		String sqlf = "update admin_spread.profile_inf set friends_id=?  where id=?";
 		jdbcTemplate.update(sqlf,new Object[] {friendsId,id});	
 	}
