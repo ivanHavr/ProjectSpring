@@ -50,22 +50,21 @@ body{
 	
 }
 #nameUser{
-	position:absolute;
 	color: white;
-    margin-top:5px;
 }
 #SnameUser{
-	margin-top:5px;
-	position:absolute;
 	color: white;
 }
 #NameSur{
 	position:absolute;
 	margin-top:5px;
+    margin-left: 10px;
+	display: inline-block;
 }
 #logOut{
 	position: absolute;
-	margin-left: 120px;
+	margin-left: 30px;
+	margin-top: 30px;
 	background:rgba(114, 1, 153, 0.6);
 	border:none;
 	color:white;
