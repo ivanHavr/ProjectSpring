@@ -5,6 +5,7 @@ package com.desktop.spring.impls;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -119,6 +120,9 @@ public class SQLiteDAO implements ProfileDAO{
 	public List<User> getUserListById(int id) {
 		String sql = "select friends_id from admin_spread.profile_inf where id=?";
 		String friendsId = (String) jdbcTemplate.queryForObject(sql,new Object[] {id},String.class);
+		if(friendsId == null) {
+			return new ArrayList<User>();
+		}else {
 		char[] ref = friendsId.toCharArray();
 		int r = 0;
 		for(int j = 0;j<ref.length;j++) {
@@ -150,6 +154,7 @@ public class SQLiteDAO implements ProfileDAO{
 			}
 		}
 		return jdbcTemplate.query(sqlf,new UserRowMapper());
+		}
 	}
 	@Override
 	public List<User> getUserList() {
