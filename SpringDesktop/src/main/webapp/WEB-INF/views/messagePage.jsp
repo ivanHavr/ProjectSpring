@@ -205,6 +205,7 @@ function sendMessege(){
 					data:({message:$('#pool_mess').val()}),
 					method:'POST',
 					success: function(data){
+						console.log("in ajax");
 						var res = data;
 						var s="";
 	                    s +="<div id=\"messRUser\">"+res+"</div>";
