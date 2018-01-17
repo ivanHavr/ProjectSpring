@@ -282,8 +282,10 @@ hr{
     margin-left: 20px;
     margin-right: 10px;
     margin-top: 4px;
-    transition: transform 0.3s;
     float: right;
+}
+.elemM span{
+	transition: transform 0.3s;
 }
 .elemM span:hover{
 	transform:scale(1.1);
