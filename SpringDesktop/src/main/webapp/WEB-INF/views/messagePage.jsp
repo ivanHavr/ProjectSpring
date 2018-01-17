@@ -135,7 +135,7 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							s +="<div id=\"messRUser\">"+res[i].text+"</div>";
+							s +="<span>"+res[i].date+"</span>"+"<div id=\"messRUser\">"+res[i].text+"</div>";
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 						else{

@@ -5,6 +5,7 @@ package com.desktop.spring.impls;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
@@ -108,7 +109,7 @@ public class SQLiteDAO implements ProfileDAO{
 	@Override
 	public void sendMessage(int sender_id, int recipient_id,String message) {
 		String sqlf = "insert into admin_spread.messages (sender_id,recipient_id,text,date) values (?,?,?,?)";
-		jdbcTemplate.update(sqlf,new Object[] {sender_id,recipient_id,message,LocalDate.now().toString()});
+		jdbcTemplate.update(sqlf,new Object[] {sender_id,recipient_id,message,LocalDateTime.now().toString()});
 	}
 	@Override
 	public List<MessageBody> getMesseges(int sender, int recipient) {
@@ -225,6 +226,7 @@ public class SQLiteDAO implements ProfileDAO{
  		messageBody.setSenderId(arg0.getInt("sender_id"));
  		messageBody.setRecipientId(arg0.getInt("recipient_Id"));
  		messageBody.setText(arg0.getString("text"));
+ 		messageBody.setDate(arg0.getString("date"));
  		return messageBody;
  	}
   }
