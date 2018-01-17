@@ -173,7 +173,6 @@ function retUser() {
 }
 var selects;
 function changeS(e){
-// 	var selects = $('.elemM').val();
     selects = e;
 	if(selects == "Message" ){
 		$("#pool_mess").val('');

@@ -280,12 +280,14 @@ hr{
 }
 .elemM{
 	display: inline-block;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 80px;
+	margin-right: 80px;
+	transition:transform 0.3s
 }
 .elemM:hover{
 	background:green;
 	color:black;
+	transform:scale(1.1);
 }
 /* result search for youtube video , google picture , gif , audio */
 
