@@ -292,14 +292,16 @@ hr{
 /* result search for youtube video , google picture , gif , audio */
 
 .resultSearch{
-	width:100%;
-	height: 250px;
-	margin-top:224px;
-	border-top:1px solid darkgray;
-	overflow: auto;
-	white-space: nowrap;
-	background: #dadee5;
-	opacity: 0;
+	width: 67.9%;
+    height: 250px;
+    position: absolute;
+    bottom: 18%;
+    margin-top: 224px;
+    border-top: 1px solid darkgray;
+    overflow: auto;
+    white-space: nowrap;
+    background: #dadee5;
+    opacity: 0;
 }
 /* this style used in javascript for slider of video */
 
