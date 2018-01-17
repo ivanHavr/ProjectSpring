@@ -61,56 +61,56 @@ var dataMes;
 var refreshdata;
 var iamG;
 var newdata;
-setInterval(function(){
-	if(dataMes==null | dataMes==-1){
-		return;
-	}
-	else{
-	$.ajax({
-		url:'getMessage',
-		method:'POST',
-		success: function(data){
-			var res = JSON.parse(data);
-			refreshdata = res.length;
-			if(dataMes == refreshdata){
-				newdata=false;
-			}else{
-				newdata=true;
-				var s="";
-				for (var i = 0; i < res.length; i++) {
+// setInterval(function(){
+// 	if(dataMes==null | dataMes==-1){
+// 		return;
+// 	}
+// 	else{
+// 	$.ajax({
+// 		url:'getMessage',
+// 		method:'POST',
+// 		success: function(data){
+// 			var res = JSON.parse(data);
+// 			refreshdata = res.length;
+// 			if(dataMes == refreshdata){
+// 				newdata=false;
+// 			}else{
+// 				newdata=true;
+// 				var s="";
+// 				for (var i = 0; i < res.length; i++) {
 					
-					if(res[i].senderId==iamG){
-						if(res[i].text.endsWith("+http")){
-							var res = res[i].text.replace("+http","");
-							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
+// 					if(res[i].senderId==iamG){
+// 						if(res[i].text.endsWith("+http")){
+// 							var res = res[i].text.replace("+http","");
+// 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
 // 				            $('#messRUser').css({"width":"310px","height":"190px"});
-						}else{
-						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
-						}
+// 						}else{
+// 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
+// 						}
 						
-					}
-					else{
-						if(res[i].text.endsWith("+http")){
-							var res = res[i].text.replace("+http","");
-							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
-// 				            $('#messRUser').css({"width":"310px","height":"190px"});
-						}else{
-						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
-						}
-					}
+// 					}
+// 					else{
+// 						if(res[i].text.endsWith("+http")){
+// 							var res = res[i].text.replace("+http","");
+// 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
+// // 				            $('#messRUser').css({"width":"310px","height":"190px"});
+// 						}else{
+// 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
+// 						}
+// 					}
 					
-				}
-// 				if(newdata==true){
-// 				$("#notifMess").html("<span>You have a new message!</span>");
-// 				$("#notifMess").show('slow');
-// 				setTimeout(function() { $("#notifMess").hide('slow'); }, 4000);
 // 				}
-				$("#mees").html(s);
-			}
-			}
-	});
-  }
-},1000);
+// // 				if(newdata==true){
+// // 				$("#notifMess").html("<span>You have a new message!</span>");
+// // 				$("#notifMess").show('slow');
+// // 				setTimeout(function() { $("#notifMess").hide('slow'); }, 4000);
+// // 				}
+// 				$("#mees").html(s);
+// 			}
+// 			}
+// 	});
+//   }
+// },1000);
 function showScroll(){
 	if(dataMes==null){
 		return;
@@ -146,11 +146,23 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
+							if(res[i].text.endsWith("+http")){
+	 							var res = res[i].text.replace("+http","");
+	 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
+// 					            $('#messRUser').css({"width":"310px","height":"190px"});
+	 						}else{
+	 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
+	 						}
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 						else{
-							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
+							if(res[i].text.endsWith("+http")){
+	 							var res = res[i].text.replace("+http","");
+	 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
+	// 				            $('#messRUser').css({"width":"310px","height":"190px"});
+	 						}else{
+	 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
+	 						}
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 					}
