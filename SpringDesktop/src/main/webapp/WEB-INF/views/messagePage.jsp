@@ -80,12 +80,23 @@ setInterval(function(){
 				for (var i = 0; i < res.length; i++) {
 					
 					if(res[i].senderId==iamG){
+						if(res[i].text.endsWith("+http")){
+							var res = res[i].text.replace("+http","");
+							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
+// 				            $('#messRUser').css({"width":"310px","height":"190px"});
+						}else{
 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
+						}
 						
 					}
 					else{
+						if(res[i].text.endsWith("+http")){
+							var res = res[i].text.replace("+http","");
+							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
+// 				            $('#messRUser').css({"width":"310px","height":"190px"});
+						}else{
 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
-						
+						}
 					}
 					
 				}
@@ -333,11 +344,11 @@ function selectVideo(e,k){
 	$.ajax({
     	url:'sendMessage',
     	mimeType:"text/html; charset=UTF-8",
-		data:({message:k}),
+		data:({message:k+"+http"}),
 		method:'POST',
 		success: function(data){
 			console.log("in ajax");
-			var res = data;
+			var res = data.replace("+http","");
 			var s="";
             s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
             $('#messRUser').css({"width":"310px","height":"190px"});
