@@ -280,9 +280,10 @@ hr{
 }
 .elemM{
 	display: inline-block;
-	margin-left: 80px;
-	margin-right: 80px;
-	transition:transform 0.3s
+    margin-left: 20px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+    float: right;
 }
 .elemM:hover{
 	background:green;
