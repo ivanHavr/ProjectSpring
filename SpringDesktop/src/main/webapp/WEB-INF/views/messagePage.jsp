@@ -135,11 +135,11 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							s +="<span class=\"dateM\">"+res[i].date+"</span>"+"<div id=\"messRUser\">"+res[i].text+"</div>";
+							s +="<div class=\"messageBlock\"><span class=\"dateM\">"+res[i].date+"</span>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 						else{
-							s +="<span class=\"dateM\">"+res[i].date+"</span>"+"<div id=\"messRFriend\">"+res[i].text+"</div>";
+							s +="<div class=\"messageBlock\"><span class=\"dateM\">"+res[i].date+"</span>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 					}
