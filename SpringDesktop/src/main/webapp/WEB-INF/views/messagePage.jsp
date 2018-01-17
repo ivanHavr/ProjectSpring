@@ -393,19 +393,28 @@ function selectVideo(e){
 		<div class="resultSearch"></div>
 	</div>
 	<div>
+	<div id="selectDiv">
+		<ul id="celectList">
+			<li class="elemM">Message</li>
+			<li class="elemM">Video</li>
+			<li class="elemM">Audio</li>
+			<li class="elemM">Picture</li>
+			<li class="elemM">Gif</li>
+		</ul>
+	</div>
 	<div id="wt_mess">
 		<input type="text"  placeholder="send a message..." id="pool_mess" onkeyup="sendMessege()"/>	
 <!-- 		Test version: selection video,audio,pic and put to google and youtube...return json type -->
 	</div>
-	<div id="selectDiv">
-		  <select id="select" onchange="changeS()">
-		  		<option>Message</option>
-				<option>Video</option>
-				<option>Audio</option>
-				<option>Picture</option>
-				<option>Gif</option>
-			</select>
-		</div>
+<!-- 	<div id="selectDiv"> -->
+<!-- 		  <select id="select" onchange="changeS()"> -->
+<!-- 		  		<option>Message</option> -->
+<!-- 				<option>Video</option> -->
+<!-- 				<option>Audio</option> -->
+<!-- 				<option>Picture</option> -->
+<!-- 				<option>Gif</option> -->
+<!-- 			</select> -->
+<!-- 		</div> -->
    </div>
 </div>
 </div>

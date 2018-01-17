@@ -198,8 +198,7 @@ hr{
 }
 /*Right sige for whiting message config input */
 #wt_mess{
-	display: inline;
-	font-size: 0;
+    width: 100%;
 }
 #w_tof{
 	margin-left:450px;
@@ -265,13 +264,22 @@ hr{
 	font-size: 20px;
 }
 /* Test version: selection video,audio,pic and put to google and youtube...return json type */
+/* #selectDiv{ */
+/* 	display: inline-block; */
+/* 	position: absolute; */
+/* } */
+/* #select{ */
+/* 	width: 116px; */
+/* 	height: 48px; */
+/* } */
 #selectDiv{
-	display: inline-block;
-	position: absolute;
+	
 }
-#select{
-	width: 116px;
-	height: 48px;
+#selectList{
+	
+}
+.elemM{
+	
 }
 /* result search for youtube video , google picture , gif , audio */
 
