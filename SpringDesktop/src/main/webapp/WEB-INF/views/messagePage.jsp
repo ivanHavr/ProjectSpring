@@ -171,10 +171,10 @@ function retUser() {
 		}
 	});
 }
-
+var selects;
 function changeS(e){
 // 	var selects = $('.elemM').val();
-var selects = e;
+    selects = e;
 	if(selects == "Message" ){
 		$("#pool_mess").val('');
 		$("#pool_mess").attr("placeholder", "send a message...");
@@ -194,7 +194,7 @@ function sendMessege(){
 	document.onkeyup = function (e) {
 		console.log("before invoke send");
 		//variable for selection type message
-		var select = $('.elemM').val();
+		var select = selects;
 		//choice
 		switch(select){
 		case "Message":
