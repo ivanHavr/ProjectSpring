@@ -213,7 +213,8 @@ hr{
 	width: 100%;
 	height: 48px;
 	font-size: 18px;
-	position: relative;
+	border: 0;
+    border-top: 1px solid gray;
 }
 #mes_right{
 	width: 100%;
@@ -291,10 +292,9 @@ hr{
 /* result search for youtube video , google picture , gif , audio */
 
 .resultSearch{
-/* 	top: 50.5%; */
-/* 	position: absolute; */
 	width:100%;
 	height: 250px;
+	margin-top:224px;
 	border-top:1px solid darkgray;
 	overflow: auto;
 	white-space: nowrap;
