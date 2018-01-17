@@ -223,7 +223,7 @@ hr{
 	overflow: scroll;
 	overflow-x:hidden;
 	overflow-y:hidden;
-	height: 573px;
+	height: 565px;
 }
 #messRUser{
 	background: #c0c0c0;
@@ -273,7 +273,7 @@ hr{
 /* 	height: 48px; */
 /* } */
 #selectDiv{
-	
+	height: 25px;
 }
 #selectList{
 	
@@ -282,11 +282,11 @@ hr{
 	display: inline-block;
     margin-left: 20px;
     margin-right: 10px;
+    margin-top: 4px;
     transition: transform 0.3s;
     float: right;
 }
 .elemM:hover{
-	background:green;
 	color:black;
 	transform:scale(1.1);
 	cursor: pointer;
