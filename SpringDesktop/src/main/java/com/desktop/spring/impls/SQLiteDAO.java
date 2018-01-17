@@ -4,8 +4,9 @@ package com.desktop.spring.impls;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
@@ -16,8 +17,6 @@ import org.springframework.stereotype.Service;
 import com.desktop.spring.interfaces.ProfileDAO;
 import com.desktop.spring.objects.MessageBody;
 import com.desktop.spring.objects.User;
-
-
 
 @Service("sqliteDAO")
 public class SQLiteDAO implements ProfileDAO{
@@ -109,7 +108,7 @@ public class SQLiteDAO implements ProfileDAO{
 	@Override
 	public void sendMessage(int sender_id, int recipient_id,String message) {
 		String sqlf = "insert into admin_spread.messages (sender_id,recipient_id,text,date) values (?,?,?,?)";
-		jdbcTemplate.update(sqlf,new Object[] {sender_id,recipient_id,message,LocalDateTime.now().toString()});
+		jdbcTemplate.update(sqlf,new Object[] {sender_id,recipient_id,message,LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)).toString()});
 	}
 	@Override
 	public List<MessageBody> getMesseges(int sender, int recipient) {
