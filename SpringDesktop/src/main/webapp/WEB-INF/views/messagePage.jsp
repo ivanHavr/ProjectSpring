@@ -395,11 +395,11 @@ function selectVideo(e){
 	<div  style="background: ghostwhite" >
 	<div id="selectDiv">
 		<ul id="selectList">
-			<li value="Message" onclick="changeS('Message')" class="elemM"><span>Message</span></li>
-			<li value="Video" onclick="changeS('Video')" class="elemM"><span>Video</span></li>
-			<li value="Audio" onclick="changeS('Audio')" class="elemM"><span>Audio</span></li>
-			<li value="Picture" onclick="changeS('Picture')" class="elemM"><span>Picture</span></li>
-			<li value="Gif" onclick="changeS('Gif')" class="elemM"><span>Gif</span></li>
+			<li value="Message" onclick="changeS('Message')" class="elemM"><div><span>Message</span></div></li>
+			<li value="Video" onclick="changeS('Video')" class="elemM"><div><span>Video</span></div></li>
+			<li value="Audio" onclick="changeS('Audio')" class="elemM"><div><span>Audio</span></div></li>
+			<li value="Picture" onclick="changeS('Picture')" class="elemM"><div><span>Picture</span></div></li>
+			<li value="Gif" onclick="changeS('Gif')" class="elemM"><div><span>Gif</span></div></li>
 		</ul>
 	</div>
 	<div id="wt_mess">
