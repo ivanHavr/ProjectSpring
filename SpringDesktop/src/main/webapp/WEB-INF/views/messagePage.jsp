@@ -317,7 +317,7 @@ function sendMessege(){
 		
 	}
 }
-function selectVideo(e,i){
+function selectVideo(e,k){
 	clickOn = true;
 	clickIndex = e;
 	for(var i = 0; i < 8; i++){
@@ -333,13 +333,13 @@ function selectVideo(e,i){
 	$.ajax({
     	url:'sendMessage',
     	mimeType:"text/html; charset=UTF-8",
-		data:({message:i}),
+		data:({message:k}),
 		method:'POST',
 		success: function(data){
 			console.log("in ajax");
 			var res = data;
 			var s="";
-            s +="<div id=\"messRUser\">"+res+"</div>";
+            s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
             $('#messRUser').css({"width":"310px","height":"190px"});
 			$("#mees").append(s);
 			$('#pool_mess').val('');
