@@ -146,7 +146,8 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							if(res[i].text.endsWith("+http")){
+							var str = res[i].text;
+							if(str.endsWith("+http")){
 	 							var res = res[i].text.replace("+http","");
 	 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
 // 					            $('#messRUser').css({"width":"310px","height":"190px"});
@@ -156,7 +157,8 @@ function selectFriend(user,iam){
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 						else{
-							if(res[i].text.endsWith("+http")){
+							var str = res[i].text;
+							if(str.endsWith("+http")){
 	 							var res = res[i].text.replace("+http","");
 	 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
 	// 				            $('#messRUser').css({"width":"310px","height":"190px"});
