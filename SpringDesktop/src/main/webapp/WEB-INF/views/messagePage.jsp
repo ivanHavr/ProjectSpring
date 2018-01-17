@@ -173,7 +173,7 @@ function retUser() {
 }
 
 function changeS(){
-	var selects = $('#select').val();
+	var selects = $('.elemM').val();
 	if(selects == "Message" ){
 		$("#pool_mess").val('');
 		$("#pool_mess").attr("placeholder", "send a message...");
@@ -193,7 +193,7 @@ function sendMessege(){
 	document.onkeyup = function (e) {
 		console.log("before invoke send");
 		//variable for selection type message
-		var select = $('#select').val();
+		var select = $('.elemM').val();
 		//choice
 		switch(select){
 		case "Message":
@@ -394,12 +394,12 @@ function selectVideo(e){
 	</div>
 	<div>
 	<div id="selectDiv">
-		<ul id="celectList">
-			<li class="elemM">Message</li>
-			<li class="elemM">Video</li>
-			<li class="elemM">Audio</li>
-			<li class="elemM">Picture</li>
-			<li class="elemM">Gif</li>
+		<ul id="selectList" onclick="changeS()">
+			<li value="Message" class="elemM">Message</li>
+			<li value="Video" class="elemM">Video</li>
+			<li value="Audio" class="elemM">Audio</li>
+			<li value="Picture" class="elemM">Picture</li>
+			<li value="Gif" class="elemM">Gif</li>
 		</ul>
 	</div>
 	<div id="wt_mess">
