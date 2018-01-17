@@ -10,8 +10,7 @@ body {
 	text-align: center;
 }
 #login{
-	margin-left:600px;
-	margin-top: 250px;
+	margin: 0 auto;
 	background:#dadee5;
 	width: 400px;
 	height:320px;
