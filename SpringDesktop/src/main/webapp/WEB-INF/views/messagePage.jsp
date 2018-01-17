@@ -139,7 +139,7 @@ function selectFriend(user,iam){
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 						else{
-							s +="<div id=\"messRFriend\">"+res[i].text+"</div>";
+							s +="<span class=\"dateM\">"+res[i].date+"</span>"+"<div id=\"messRFriend\">"+res[i].text+"</div>";
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 					}
