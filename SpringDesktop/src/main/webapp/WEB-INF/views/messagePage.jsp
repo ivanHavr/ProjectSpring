@@ -80,11 +80,11 @@ setInterval(function(){
 				for (var i = 0; i < res.length; i++) {
 					
 					if(res[i].senderId==iamG){
-						s +="<div id=\"messRUser\">"+res[i].text+"</div>";
+						s +="<div class=\"messageBlock\"><span class=\"dateM\">"+res[i].date+"</span>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
 						
 					}
 					else{
-						s +="<div id=\"messRFriend\">"+res[i].text+"</div>";
+						s +="<div class=\"messageBlock\"><span class=\"dateM\">"+res[i].date+"</span>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
 						
 					}
 					
