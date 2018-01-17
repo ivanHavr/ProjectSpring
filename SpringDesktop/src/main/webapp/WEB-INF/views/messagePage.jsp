@@ -277,7 +277,7 @@ function sendMessege(){
 				    var results = response.result;
 				    s +="";
 		    		$.each(results.items, function (index, item) {
-		    						 s +="<div id=\"resultSepar"+index+"\" onclick=\"selectVideo("+index+")\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+item.id.videoId+"\"></iframe>"+
+		    						 s +="<div id=\"resultSepar"+index+"\" onclick=\"selectVideo("+index+","+item.id.videoId+")\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+item.id.videoId+"\"></iframe>"+
 		    		 		    		"<div><i id=\"Separ"+index+"\" class=\"fa fa-check\" aria-hidden=\"true\"></i></div></div>";
 		    		});
 				    $(".resultSearch").html(s);
@@ -303,7 +303,8 @@ function sendMessege(){
 		    		tr = true;
 		    		clickOn = false;
 			});
-	      }	
+	      }
+			
 		}
 		break; 
 // 		case "Audio":
@@ -316,7 +317,7 @@ function sendMessege(){
 		
 	}
 }
-function selectVideo(e){
+function selectVideo(e,i){
 	clickOn = true;
 	clickIndex = e;
 	for(var i = 0; i < 8; i++){
@@ -329,7 +330,22 @@ function selectVideo(e){
 	$('#Separ'+i+'').css('color','white');
 	}
 	}
-	
+	$.ajax({
+    	url:'sendMessage',
+    	mimeType:"text/html; charset=UTF-8",
+		data:({message:i}),
+		method:'POST',
+		success: function(data){
+			console.log("in ajax");
+			var res = data;
+			var s="";
+            s +="<div id=\"messRUser\">"+res+"</div>";
+            $('#messRUser').css({"width":"310px","height":"190px"});
+			$("#mees").append(s);
+			$('#pool_mess').val('');
+		}
+});
+	$(".resultSearch").fadeOut(250);	
 }
 </script>
 <script src="https://apis.google.com/js/client.js?onload=init"></script>
