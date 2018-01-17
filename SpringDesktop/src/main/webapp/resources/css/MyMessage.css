@@ -250,7 +250,6 @@ hr{
 }
 .messageBlock{
 	text-align: center;
-	color: white;
 }
 .dateM{
 	
@@ -286,8 +285,7 @@ hr{
     transition: transform 0.3s;
     float: right;
 }
-.elemM:hover{
-	color:black;
+.elemM span:hover{
 	transform:scale(1.1);
 	cursor: pointer;
 }
