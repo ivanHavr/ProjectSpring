@@ -80,11 +80,11 @@ setInterval(function(){
 				for (var i = 0; i < res.length; i++) {
 					
 					if(res[i].senderId==iamG){
-						s +="<div class=\"messageBlock\"><span class=\"dateM\">"+res[i].date+"</span>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
+						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
 						
 					}
 					else{
-						s +="<div class=\"messageBlock\"><span class=\"dateM\">"+res[i].date+"</span>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
+						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
 						
 					}
 					
@@ -135,11 +135,11 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							s +="<div class=\"messageBlock\"><span class=\"dateM\">"+res[i].date+"</span>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
+							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 						else{
-							s +="<div class=\"messageBlock\"><span class=\"dateM\">"+res[i].date+"</span>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
+							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 					}
