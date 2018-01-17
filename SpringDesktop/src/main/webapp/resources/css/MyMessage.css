@@ -15,7 +15,6 @@ body{
 #search{
 	display: inline-block;
 	margin-left: 101px;
-	position: relative;
 }
 .listSearch a{
 	color: black;
@@ -46,7 +45,6 @@ body{
 	margin:0 0 0 50px;
 	max-width: 30px;
 	max-height: 30px;
-	position: relative;
 	
 }
 #nameUser{
