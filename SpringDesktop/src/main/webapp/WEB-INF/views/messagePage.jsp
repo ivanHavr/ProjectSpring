@@ -143,13 +143,12 @@ function selectFriend(user,iam){
 						$('#mees').html("<div id=\"DefInf\"><span id=\"def\">Let's start discussing with your friend</span></div>");
 						return;
 					}
-					var str="";
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							str = res[i].text;
-							str = str.match(/[+]http/g);
-							if(str == "+http"){
+							var str = res[i].text;
+							var resss = str.match(/[+]http/g);
+							if(resss == "+http"){
 	 							var res = res[i].text.replace("+http","");
 	 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
 // 					            $('#messRUser').css({"width":"310px","height":"190px"});
@@ -159,9 +158,9 @@ function selectFriend(user,iam){
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 						else{
-							str = res[i].text;
-							str = str.match(/[+]http/g);
-							if(str =="+http"){
+							var str = res[i].text;
+							var resss = str.match(/[+]http/g);
+							if(resss =="+http"){
 	 							var res = res[i].text.replace("+http","");
 	 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
 	// 				            $('#messRUser').css({"width":"310px","height":"190px"});
