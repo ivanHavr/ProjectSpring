@@ -392,7 +392,7 @@ function selectVideo(e){
 		</div>
 		<div class="resultSearch"></div>
 	</div>
-	<div>
+	<div  style="background: ghostwhite" >
 	<div id="selectDiv">
 		<ul id="selectList">
 			<li value="Message" onclick="changeS('Message')" class="elemM">Message</li>
