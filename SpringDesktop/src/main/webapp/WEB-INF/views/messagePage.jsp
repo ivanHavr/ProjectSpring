@@ -277,7 +277,7 @@ function sendMessege(){
 				    var results = response.result;
 				    s +="";
 		    		$.each(results.items, function (index, item) {
-		    						 s +="<div id=\"resultSepar"+index+"\" onclick=\"selectVideo("+index+","+item.id.videoId+")\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+item.id.videoId+"\"></iframe>"+
+		    						 s +="<div id=\"resultSepar"+index+"\" onclick=\"selectVideo("+index+",'"+item.id.videoId+"')\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+item.id.videoId+"\"></iframe>"+
 		    		 		    		"<div><i id=\"Separ"+index+"\" class=\"fa fa-check\" aria-hidden=\"true\"></i></div></div>";
 		    		});
 				    $(".resultSearch").html(s);
