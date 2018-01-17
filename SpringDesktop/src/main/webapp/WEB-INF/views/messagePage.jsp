@@ -146,7 +146,7 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							var str = res[i].text.toString();
+							var str =""+res[i].text+"";
 							var resss = str.match(/[+]http/g);
 							if(resss == "+http"){
 	 							var res = res[i].text.replace("+http","");
@@ -158,7 +158,7 @@ function selectFriend(user,iam){
 							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 						else{
-							var str = res[i].text.toString();
+							var str =""+res[i].text+"";
 							var resss = str.match(/[+]http/g);
 							if(resss =="+http"){
 	 							var res = res[i].text.replace("+http","");
