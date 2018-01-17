@@ -147,7 +147,7 @@ function selectFriend(user,iam){
 						iamG = iam;
 						if(res[i].senderId==iam){
 							var str = res[i].text.match(/[+]http/g);
-							if(str==true){
+							if(str=="+http"){
 	 							var res = res[i].text.replace("+http","");
 	 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
 // 					            $('#messRUser').css({"width":"310px","height":"190px"});
@@ -158,7 +158,7 @@ function selectFriend(user,iam){
 						}
 						else{
 							var str = res[i].text.match(/[+]http/g);
-							if(str==true){
+							if(str=="+http"){
 	 							var res = res[i].text.replace("+http","");
 	 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
 	// 				            $('#messRUser').css({"width":"310px","height":"190px"});
