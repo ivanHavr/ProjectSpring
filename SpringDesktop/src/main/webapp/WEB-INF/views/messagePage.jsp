@@ -25,18 +25,18 @@ function getUserFromBase(){
 			var res = JSON.parse(data);
 			for (var i = 0; i < res.length; i++) {
 				if(res[i].online){
-					$(".isOn").removeClass("isOn").addClass("isOnline");
-					$(".isOnline").html("Online");
+					var s = "<span class=\"isOnline\">Online</span>";
+					$(".userss").html(s);
 				}else{
-					$(".isOn").removeClass("isOn").addClass("isOffline");
-					$(".isOffline").html("Offline");
+					var s = "<span class=\"isOffline\">Offline</span>";
+					$(".userss").html(s);
 				}	
 			}	
 		}
 	});	
 }
-getUserFromBase();
 $(document).ready(function() {
+getUserFromBase();
 // setInterval(function(){
 // 		getUserFromBase();
 // 	},10000);
@@ -353,7 +353,7 @@ function selectVideo(e,k){
 		 <img class="FriendMessage" src="${pageContext.request.contextPath}${userOns.pathPhoto}"> 
 		 <span class="nameM">${userOns.name}</span>
 		 <span class="nameMa">${userOns.surname}</span>
-		 <span class="isOn"></span>
+		 
 		 </div>
 		 </li>
 		</c:forEach>	
