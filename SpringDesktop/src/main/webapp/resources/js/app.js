@@ -63,42 +63,29 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							//console.log("date before: "+res[i].date+", text before: " + res[i].text);
-							var str = res[i].text+"";
-							var resss = str.match(/[+]http/g);
-							if(resss == "+http"){
-	 							var ress = res[i].text.replace("+http","");
-	 							console.log("date: "+res[i].date+", text: " + res[i].text);
-	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
-	 							"<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+ress+"\"></iframe></div></div>";
-	 						}else{
-	 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
-	 						console.log("date: "+res[i].date+", text: " + res[i].text);
-	 						}
+							getFromDB("messRUser",res[i].date,res[i].text,s);
 						}
 						else{
-							//console.log("date before: "+res[i].date+", text before: " + res[i].text);
-							var str = res[i].text+"";
-							var resss = str.match(/[+]http/g);
-							if(resss == "+http"){
-	 							var ress = res[i].text.replace("+http","");
-	 							console.log("date: "+res[i].date+", text: " + res[i].text);
-	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
-	 							"<div id=\"messRFriend\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+ress+"\"></iframe></div></div>";
-	 						}else{
-	 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
-	 						console.log("date: "+res[i].date+", text: " + res[i].text);
-	 						}
+							getFromDB("messRFriend",res[i].date,res[i].text,s);
 						}
 					}
 					$("#mees").html(s);
 				}
 			});
 		}
-	
-});
-	
-	
+   });
+}
+
+function getFromDB(user,date,text,s){
+	var str = text+"";
+	var resss = str.match(/[+]http/g);
+	if(resss == "+http"){
+			var ress = text.replace("+http","");
+			s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+date+"</span></div>"+
+			"<div id=\""+user+"\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+ress+"\"></iframe></div></div>";
+		}else{
+		s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+date+"</span></div>"+"<div id=\""+user+"\">"+text+"</div></div>";
+		}
 }
 
 function retUser() {
