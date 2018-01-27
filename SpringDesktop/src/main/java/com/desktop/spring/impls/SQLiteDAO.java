@@ -175,13 +175,19 @@ public class SQLiteDAO implements ProfileDAO{
 	public void addFriend(int id, int idFriend) {
 		String sql = "select friends_id from admin_spread.profile_inf where id=?";
 		String friendsId = (String) jdbcTemplate.queryForObject(sql,new Object[] {id},String.class);
+		String friendsIdF = (String) jdbcTemplate.queryForObject(sql,new Object[] {idFriend},String.class);
+		
 		if(friendsId == null || friendsId.equals("0") ) {
 			friendsId = String.valueOf(idFriend);
+			friendsIdF = String.valueOf(id);
 		}else {
 		friendsId+=","+String.valueOf(idFriend);
+		friendsIdF+=","+String.valueOf(id);
 		}
+		
 		String sqlf = "update admin_spread.profile_inf set friends_id=?  where id=?";
-		jdbcTemplate.update(sqlf,new Object[] {friendsId,id});	
+		jdbcTemplate.update(sqlf,new Object[] {friendsId,id});
+		jdbcTemplate.update(sqlf,new Object[] {friendsIdF,idFriend});	
 	}
 	@Override
 	public void updateOnline(int id,boolean online) {
