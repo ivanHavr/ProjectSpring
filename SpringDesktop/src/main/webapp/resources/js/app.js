@@ -63,10 +63,10 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							getFromDB("messRUser",res[i].date,res[i].text,s);
+							s += getFromDB("messRUser",res[i].date,res[i].text,s);
 						}
 						else{
-							getFromDB("messRFriend",res[i].date,res[i].text,s);
+							s += getFromDB("messRFriend",res[i].date,res[i].text,s);
 						}
 					}
 					$("#mees").html(s);
@@ -86,6 +86,7 @@ function getFromDB(user,date,text,s){
 		}else{
 		s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+date+"</span></div>"+"<div id=\""+user+"\">"+text+"</div></div>";
 		}
+	return s;
 }
 
 function retUser() {
