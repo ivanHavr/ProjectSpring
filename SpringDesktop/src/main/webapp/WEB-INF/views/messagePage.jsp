@@ -36,11 +36,11 @@ function getUserFromBase(){
 	});	
 }
 $(document).ready(function() {
-	getUserFromBase();
-// setInterval(function(){
-// 		getUserFromBase();
-// 	},10000);
-// });
+// 	getUserFromBase();
+setInterval(function(){
+		getUserFromBase();
+	},10000);
+});
 //refresh message between users
 var dataMes;
 var refreshdata;
