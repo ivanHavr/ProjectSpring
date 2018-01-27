@@ -76,7 +76,7 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							console.log("date before: "+res[i].date+", text before: " + res[i].text);
+							//console.log("date before: "+res[i].date+", text before: " + res[i].text);
 							var str = res[i].text;
 							var resss = str.match(/[+]http/g);
 							if(resss === "+http"){
@@ -90,7 +90,7 @@ function selectFriend(user,iam){
 	 						}
 						}
 						else{
-							console.log("date before: "+res[i].date+", text before: " + res[i].text);
+							//console.log("date before: "+res[i].date+", text before: " + res[i].text);
 							var str = res[i].text;
 							var resss = str.match(/[+]http/g);
 							if(resss === "+http"){
