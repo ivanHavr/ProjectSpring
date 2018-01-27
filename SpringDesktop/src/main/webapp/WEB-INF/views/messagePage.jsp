@@ -17,24 +17,19 @@ function init(){
 	});
 }
 
-function getUserFromBase(){
+ function getUserFromBase(){
 	$.ajax({
 		url:'usersOnline',
 		method:'GET',
 		success: function(data){
 			var res = JSON.parse(data);
 			for (var i = 0; i < res.length; i++) {
-				if(res[i].online){
-					var s = "<span class=\"isOnline\">Online</span>";
-					$(".userss .divUser:eq( "+i+" )").append(s);
-				}else{
-					var s = "<span class=\"isOffline\">Offline</span>";
-					$(".userss .divUser:eq( "+i+" )").append(s);
-				}	
-			}	
-		}
-	});	
+				if(res[i].online){ var s = "<span class=\"isOnline\">Online</span>";
+				                   $(".userss .divUser:eq( "+i+" )").append(s);
+				}else{ var s = "<span class=\"isOffline\">Offline</span>";
+					   $(".userss .divUser:eq( "+i+" )").append(s);}}}});	
 }
+
 $(document).ready(function() {
 getUserFromBase();
 // setInterval(function(){
@@ -88,11 +83,9 @@ function selectFriend(user,iam){
 	 							var res = res[i].text.replace("+http","");
 	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
 	 							"<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div></div>";
-// 					            $('#messRUser').css({"width":"310px","height":"190px"});
 	 						}else{
 	 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
 	 						}
-							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 						else{
 							var str =""+res[i].text+"";
@@ -101,11 +94,9 @@ function selectFriend(user,iam){
 	 							var res = res[i].text.replace("+http","");
 	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
 	 							"<div id=\"messRFriend\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div></div>";
-	// 				            $('#messRUser').css({"width":"310px","height":"190px"});
 	 						}else{
 	 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
 	 						}
-							console.log(res[i].senderId +" "+ res[i].recipientId);
 						}
 					}
 					$("#mees").html(s);
@@ -206,35 +197,11 @@ function sendMessege(){
 				    var results = response.result;
 		    		$.each(results.items, function (index, item) {
 		    			s +="<div id=\"resultSepar"+index+"\" onclick=\"selectVideo("+index+")\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+item.id.videoId+"\"></iframe>"+
-	 		    		"<div><i id=\"Separ"+index+"\" class=\"fa fa-check\" aria-hidden=\"true\"></i></div></div>";
-					    console.log(item);
-//			    			console.log(s);
-					    
-					    
+	 		    		"<div><i id=\"Separ"+index+"\" class=\"fa fa-check\" aria-hidden=\"true\"></i></div></div>";	    
 		    		});
-		    		
 		    		$(".resultSearch").html(s);
-		    		$.each(results.items, function(index,item){
-		    			$('#resultSepar'+index+'').css({"display":"inline-block","margin":"8px 30px 0 20px","padding":"10px 10px 5px 10px"});
-						$('#Separ'+index+'').css({"color": "white", "float": "right","margin-top":"10px"});
-						$('#resultSepar'+index+'').mouseover(function(){
-							$('#resultSepar'+index+'').css('background','#6b6b6b');
-						    $('#Separ'+index+'').css("color","rgb(91, 181, 255)");
-						    
-					});
-					$('#resultSepar'+index+'').mouseleave(function(){
-						if(clickOn != true || clickIndex !=index){
-							$('#Separ'+index+'').css("color","white");
-							$('#resultSepar'+index+'').css('background','none');
-							
-						}else{
-							$('#resultSepar'+index+'').css('background','#6b6b6b');
-							$('#Separ'+index+'').css("color","rgb(91, 181, 255)");
-						}
-					});
-		    		});
+		    		configToVideo(results);
 			});
-				console.log(s);
 				$(".resultSearch").fadeIn(500);
 				
 			}else{
@@ -247,40 +214,36 @@ function sendMessege(){
 		    		});
 				    $(".resultSearch").html(s);
 					$(".resultSearch").fadeTo(500,1);
-		    		$.each(results.items, function(index,item){
-		    			$('#resultSepar'+index+'').css({"display":"inline-block","margin":"8px 30px 0 20px","padding":"10px 10px 5px 10px"});
-						$('#Separ'+index+'').css({"color": "white", "float": "right","margin-top":"10px"});
-					    $('#resultSepar'+index+'').mouseover(function(){
-					    	    $('#resultSepar'+index+'').css('background','#6b6b6b');
-							    $('#Separ'+index+'').css("color","rgb(91, 181, 255)");
-						});
-						$('#resultSepar'+index+'').mouseleave(function(){
-							if(clickOn != true || clickIndex !=index){
-								$('#Separ'+index+'').css("color","white");
-								$('#resultSepar'+index+'').css('background','none');
-								
-							}else{
-								$('#resultSepar'+index+'').css('background','#6b6b6b');
-								$('#Separ'+index+'').css("color","rgb(91, 181, 255)");
-							}
-						});
-		    		});
+					configToVideo(results);
 		    		tr = true;
 		    		clickOn = false;
 			});
 	      }
-			
 		}
-		break; 
-// 		case "Audio":
-// 		break;
-// 		case "Picture":
-// 		break;
-// 		case "Gif":
-// 		break;
+		break;
 		}
-		
 	}
+}
+
+function configToVideo(results){
+	$.each(results.items, function(index,item){
+		$('#resultSepar'+index+'').css({"display":"inline-block","margin":"8px 30px 0 20px","padding":"10px 10px 5px 10px"});
+		$('#Separ'+index+'').css({"color": "white", "float": "right","margin-top":"10px"});
+	    $('#resultSepar'+index+'').mouseover(function(){
+	    	    $('#resultSepar'+index+'').css('background','#6b6b6b');
+			    $('#Separ'+index+'').css("color","rgb(91, 181, 255)");
+		});
+		$('#resultSepar'+index+'').mouseleave(function(){
+			if(clickOn != true || clickIndex !=index){
+				$('#Separ'+index+'').css("color","white");
+				$('#resultSepar'+index+'').css('background','none');
+				
+			}else{
+				$('#resultSepar'+index+'').css('background','#6b6b6b');
+				$('#Separ'+index+'').css("color","rgb(91, 181, 255)");
+			}
+		});
+	});
 }
 function selectVideo(e,k){
 	clickOn = true;
@@ -301,7 +264,6 @@ function selectVideo(e,k){
 		data:({message:k+"+http"}),
 		method:'POST',
 		success: function(data){
-			console.log("in ajax");
 			var res = data.replace("+http","");
 			var s="";
             s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
@@ -352,8 +314,7 @@ function selectVideo(e,k){
 		 <div class="divUser">
 		 <img class="FriendMessage" src="${pageContext.request.contextPath}${userOns.pathPhoto}"> 
 		 <span class="nameM">${userOns.name}</span>
-		 <span class="nameMa">${userOns.surname}</span>
-		 
+		 <span class="nameMa">${userOns.surname}</span>	 
 		 </div>
 		 </li>
 		</c:forEach>	
