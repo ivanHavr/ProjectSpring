@@ -205,7 +205,7 @@ function sendMessege(){
 				request.execute(function(response){
 				    var results = response.result;
 		    		$.each(results.items, function (index, item) {
-		    			s +="<div id=\"resultSepar"+index+"\" onclick=\"selectVideo("+index+")\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+item.id.videoId+"\"></iframe>"+
+		    			s +="<div id=\"resultSepar"+index+"\" onclick=\"selectVideo("+index+",'"+item.id.videoId+"')\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+item.id.videoId+"\"></iframe>"+
 	 		    		"<div><i id=\"Separ"+index+"\" class=\"fa fa-check\" aria-hidden=\"true\"></i></div></div>";	    
 		    		});
 		    		$(".resultSearch").html(s);
@@ -344,7 +344,7 @@ function selectVideo(e,k){
 	<div  style="background: ghostwhite" >
 	<div id="selectDiv">
 		<ul id="selectList">
-			<li value="Message" onclick="changeS('Message')" class="elemM"><div><span>Message</span></div></li>
+			<li value="Message"  onclick="changeS('Message')" class="elemM"><div><span>Message</span></div></li>
 			<li value="Video" onclick="changeS('Video')" class="elemM"><div><span>Video</span></div></li>
 			<li value="Audio" onclick="changeS('Audio')" class="elemM"><div><span>Audio</span></div></li>
 			<li value="Picture" onclick="changeS('Picture')" class="elemM"><div><span>Picture</span></div></li>
