@@ -25,11 +25,11 @@ function getUserFromBase(){
 			var res = JSON.parse(data);
 			for (var i = 0; i < res.length; i++) {
 				if(res[i].online){
-					$(".isOn").addClass("isOnline");
-					$(".isOn").html("Online");
+					$(".isOn").toggleClass("isOnline");
+					$(".isOnline").html("Online");
 				}else{
-					$(".isOn").addClass("isOffline");
-					$(".isOn").html("Offline");
+					$(".isOn").toggleClass("isOffline");
+					$(".isOffline").html("Offline");
 				}	
 			}	
 		}
