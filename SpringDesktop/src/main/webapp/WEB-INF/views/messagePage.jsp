@@ -79,7 +79,7 @@ function selectFriend(user,iam){
 							//console.log("date before: "+res[i].date+", text before: " + res[i].text);
 							var str = res[i].text;
 							var resss = str.match(/[+]http/g);
-							if(resss === "+http"){
+							if(resss == "+http"){
 	 							var res = res[i].text.replace("+http","");
 	 							console.log("date: "+res[i].date+", text: " + res[i].text);
 	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
@@ -93,7 +93,7 @@ function selectFriend(user,iam){
 							//console.log("date before: "+res[i].date+", text before: " + res[i].text);
 							var str = res[i].text;
 							var resss = str.match(/[+]http/g);
-							if(resss === "+http"){
+							if(resss == "+http"){
 	 							var res = res[i].text.replace("+http","");
 	 							console.log("date: "+res[i].date+", text: " + res[i].text);
 	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
