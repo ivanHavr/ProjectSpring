@@ -158,12 +158,12 @@ function sendMessege(){
 		//choice
 		switch(select){
 		case "Message":
-			if(dataMes==0){
-				$('#mees').html("");
-			}
 		 $(".resultSearch").fadeOut(250,0);
 	     e = e || window.event;
 		 if (e.keyCode === 13) {
+			 if(dataMes==0){
+					$('#mees').html("");
+				}
 			 console.log("pre ajax");
 			    $.ajax({
 			    	url:'sendMessage',
@@ -184,15 +184,14 @@ function sendMessege(){
 	      }
 		break;
 		case "Video":
-			if(dataMes==0){
-				$('#mees').html("");
-			}
 		var s="";
 		if($('#pool_mess').val()==""){
 			s = "";
 			$(".resultSearch").fadeOut(250);
 		}else if(e.keyCode === 13){
-	
+			if(dataMes==0){
+				$('#mees').html("");
+			}
 			var request = gapi.client.youtube.search.list({
 				part:"snippet",
 				type:"video",
