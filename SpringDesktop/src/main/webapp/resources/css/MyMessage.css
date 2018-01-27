@@ -323,3 +323,16 @@ hr{
 /* 	float: right; */
 /* 	margin-top: 20px; */
 /* } */
+/* config onload page */
+.isOnline{
+	float:right;
+	color:#55acee;
+	margin-right:5px;
+	font-family:monospace;
+}
+.isOffline{
+	float:right;
+	color:black;
+	margin-right:5px;
+	font-family:monospace;
+}

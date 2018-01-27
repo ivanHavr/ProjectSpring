@@ -16,7 +16,8 @@ function init(){
 	gapi.client.load("youtube","v3",function(){
 	});
 }
-$(document).ready(function() {
+
+function getUserFromBase(){
 	$.ajax({
 		url:'usersOnline',
 		method:'GET',
@@ -24,10 +25,10 @@ $(document).ready(function() {
 			var res = JSON.parse(data);
 			for (var i = 0; i < res.length; i++) {
 				if(res[i].online){
-					$(".isOn"+i).css({"float":"right","color":"#55acee","margin-right":"5px","font-family":"monospace"});
+					$(".isOn"+i).addClass("isOnline");
 					$(".isOn"+i).html("Online");
 				}else{
-					$(".isOn"+i).css({"float":"right","color":"black","margin-right":"5px","font-family":"monospace"});
+					$(".isOn"+i).addClass("isOffline");
 					$(".isOn"+i).html("Offline");
 				}
 				
@@ -35,25 +36,10 @@ $(document).ready(function() {
 			
 		}
 	});	
+}
+$(document).ready(function() {
 setInterval(function(){
-		$.ajax({
-			url:'usersOnline',
-			method:'GET',
-			success: function(data){
-				var res = JSON.parse(data);
-				for (var i = 0; i < res.length; i++) {
-					if(res[i].online){
-						$(".isOn"+i).css({"float":"right","color":"#55acee","margin-right":"5px","font-family":"monospace"});
-						$(".isOn"+i).html("Online");
-					}else{
-						$(".isOn"+i).css({"float":"right","color":"black","margin-right":"5px","font-family":"monospace"});
-						$(".isOn"+i).html("Offline");
-					}
-					
-				}
-				
-			}
-		});	
+		getUserFromBase();
 	},10000);
 });
 //refresh message between users
@@ -61,56 +47,7 @@ var dataMes;
 var refreshdata;
 var iamG;
 var newdata;
-// setInterval(function(){
-// 	if(dataMes==null | dataMes==-1){
-// 		return;
-// 	}
-// 	else{
-// 	$.ajax({
-// 		url:'getMessage',
-// 		method:'POST',
-// 		success: function(data){
-// 			var res = JSON.parse(data);
-// 			refreshdata = res.length;
-// 			if(dataMes == refreshdata){
-// 				newdata=false;
-// 			}else{
-// 				newdata=true;
-// 				var s="";
-// 				for (var i = 0; i < res.length; i++) {
-					
-// 					if(res[i].senderId==iamG){
-// 						if(res[i].text.endsWith("+http")){
-// 							var res = res[i].text.replace("+http","");
-// 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
-// 				            $('#messRUser').css({"width":"310px","height":"190px"});
-// 						}else{
-// 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
-// 						}
-						
-// 					}
-// 					else{
-// 						if(res[i].text.endsWith("+http")){
-// 							var res = res[i].text.replace("+http","");
-// 							s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
-// // 				            $('#messRUser').css({"width":"310px","height":"190px"});
-// 						}else{
-// 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
-// 						}
-// 					}
-					
-// 				}
-// // 				if(newdata==true){
-// // 				$("#notifMess").html("<span>You have a new message!</span>");
-// // 				$("#notifMess").show('slow');
-// // 				setTimeout(function() { $("#notifMess").hide('slow'); }, 4000);
-// // 				}
-// 				$("#mees").html(s);
-// 			}
-// 			}
-// 	});
-//   }
-// },1000);
+
 function showScroll(){
 	if(dataMes==null){
 		return;
@@ -449,17 +386,7 @@ function selectVideo(e,k){
 	</div>
 	<div id="wt_mess">
 		<input type="text"  placeholder="send a message..." id="pool_mess" onkeyup="sendMessege()"/>	
-<!-- 		Test version: selection video,audio,pic and put to google and youtube...return json type -->
 	</div>
-<!-- 	<div id="selectDiv"> -->
-<!-- 		  <select id="select" onchange="changeS()"> -->
-<!-- 		  		<option>Message</option> -->
-<!-- 				<option>Video</option> -->
-<!-- 				<option>Audio</option> -->
-<!-- 				<option>Picture</option> -->
-<!-- 				<option>Gif</option> -->
-<!-- 			</select> -->
-<!-- 		</div> -->
    </div>
 </div>
 </div>
