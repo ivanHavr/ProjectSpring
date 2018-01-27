@@ -76,9 +76,10 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
+							console.log("date before: "+res[i].date+", text before: " + res[i].text);
 							var str =""+res[i].text+"";
 							var resss = str.match(/[+]http/g);
-							if(resss == "+http"){
+							if(resss === "+http"){
 	 							var res = res[i].text.replace("+http","");
 	 							console.log("date: "+res[i].date+", text: " + res[i].text);
 	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
@@ -89,9 +90,10 @@ function selectFriend(user,iam){
 	 						}
 						}
 						else{
+							console.log("date before: "+res[i].date+", text before: " + res[i].text);
 							var str =""+res[i].text+"";
 							var resss = str.match(/[+]http/g);
-							if(resss =="+http"){
+							if(resss === "+http"){
 	 							var res = res[i].text.replace("+http","");
 	 							console.log("date: "+res[i].date+", text: " + res[i].text);
 	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
