@@ -26,10 +26,10 @@ function getUserFromBase(){
 			for (var i = 0; i < res.length; i++) {
 				if(res[i].online){
 					var s = "<span class=\"isOnline\">Online</span>";
-					$(".userss").append(s);
+					$(".userss .divUser").append(s);
 				}else{
 					var s = "<span class=\"isOffline\">Offline</span>";
-					$(".userss").append(s);
+					$(".userss .divUser").append(s);
 				}	
 			}	
 		}
