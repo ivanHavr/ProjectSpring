@@ -40,7 +40,7 @@ $(document).ready(function() {
 // setInterval(function(){
 // 		getUserFromBase();
 // 	},10000);
-// });
+});
 //refresh message between users
 var dataMes;
 var refreshdata;
