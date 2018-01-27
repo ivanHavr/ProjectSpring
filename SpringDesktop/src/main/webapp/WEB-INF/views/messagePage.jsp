@@ -25,22 +25,22 @@ function getUserFromBase(){
 			var res = JSON.parse(data);
 			for (var i = 0; i < res.length; i++) {
 				if(res[i].online){
-					$(".isOn").toggleClass("isOnline");
+					$(".isOn").removeClass("isOn").addClass("isOnline");
 					$(".isOnline").html("Online");
 				}else{
-					$(".isOn").toggleClass("isOffline");
+					$(".isOn").removeClass("isOn").addClass("isOffline");
 					$(".isOffline").html("Offline");
 				}	
 			}	
 		}
 	});	
 }
+getUserFromBase();
 $(document).ready(function() {
-// 	getUserFromBase();
-setInterval(function(){
-		getUserFromBase();
-	},10000);
-});
+// setInterval(function(){
+// 		getUserFromBase();
+// 	},10000);
+// });
 //refresh message between users
 var dataMes;
 var refreshdata;
