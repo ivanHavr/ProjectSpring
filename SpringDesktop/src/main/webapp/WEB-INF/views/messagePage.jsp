@@ -158,7 +158,9 @@ function sendMessege(){
 		//choice
 		switch(select){
 		case "Message":
-			console.log("in select message");
+			if(dataMes==0){
+				$('#mees').html("");
+			}
 		 $(".resultSearch").fadeOut(250,0);
 	     e = e || window.event;
 		 if (e.keyCode === 13) {
@@ -182,6 +184,9 @@ function sendMessege(){
 	      }
 		break;
 		case "Video":
+			if(dataMes==0){
+				$('#mees').html("");
+			}
 		var s="";
 		if($('#pool_mess').val()==""){
 			s = "";
