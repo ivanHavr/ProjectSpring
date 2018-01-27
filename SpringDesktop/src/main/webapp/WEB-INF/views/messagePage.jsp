@@ -80,10 +80,10 @@ function selectFriend(user,iam){
 							var str = res[i].text+"";
 							var resss = str.match(/[+]http/g);
 							if(resss == "+http"){
-	 							var res = res[i].text.replace("+http","");
+	 							var ress = res[i].text.replace("+http","");
 	 							console.log("date: "+res[i].date+", text: " + res[i].text);
 	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
-	 							"<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div></div>";
+	 							"<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+ress+"\"></iframe></div></div>";
 	 						}else{
 	 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
 	 						console.log("date: "+res[i].date+", text: " + res[i].text);
@@ -94,10 +94,10 @@ function selectFriend(user,iam){
 							var str = res[i].text+"";
 							var resss = str.match(/[+]http/g);
 							if(resss == "+http"){
-	 							var res = res[i].text.replace("+http","");
+	 							var ress = res[i].text.replace("+http","");
 	 							console.log("date: "+res[i].date+", text: " + res[i].text);
 	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
-	 							"<div id=\"messRFriend\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div></div>";
+	 							"<div id=\"messRFriend\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+ress+"\"></iframe></div></div>";
 	 						}else{
 	 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
 	 						console.log("date: "+res[i].date+", text: " + res[i].text);
