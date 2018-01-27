@@ -328,11 +328,13 @@ hr{
 	float:right;
 	color:#55acee;
 	margin-right:5px;
+	margin-top:10px;
 	font-family:monospace;
 }
 .isOffline{
 	float:right;
 	color:black;
 	margin-right:5px;
+	margin-top:10px;
 	font-family:monospace;
 }

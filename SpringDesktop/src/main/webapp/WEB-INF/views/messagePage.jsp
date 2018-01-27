@@ -25,15 +25,13 @@ function getUserFromBase(){
 			var res = JSON.parse(data);
 			for (var i = 0; i < res.length; i++) {
 				if(res[i].online){
-					$(".isOn"+i).addClass("isOnline");
-					$(".isOn"+i).html("Online");
+					$(".isOn").addClass("isOnline");
+					$(".isOn").html("Online");
 				}else{
-					$(".isOn"+i).addClass("isOffline");
-					$(".isOn"+i).html("Offline");
-				}
-				
-			}
-			
+					$(".isOn").addClass("isOffline");
+					$(".isOn").html("Offline");
+				}	
+			}	
 		}
 	});	
 }
@@ -349,17 +347,15 @@ function selectVideo(e,k){
 	<hr>
 		 <ul>
 		 <c:forEach var="userOns" items="${usersOnline}">
-		 <%!int inc2 = 0; %>
 		 <li class="userss" onclick="selectFriend(${userOns.id},${userself.id})">
 		 <div class="divUser">
 		 <img class="FriendMessage" src="${pageContext.request.contextPath}${userOns.pathPhoto}"> 
 		 <span class="nameM">${userOns.name}</span>
 		 <span class="nameMa">${userOns.surname}</span>
-		 <span class="isOn<%=inc2++%>" style="margin-top:10px;"></span>
+		 <span class="isOn"></span>
 		 </div>
 		 </li>
-		</c:forEach>
-		<%inc2 = 0;%>	
+		</c:forEach>	
 		</ul>
 		</div>
 </div>
