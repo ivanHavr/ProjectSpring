@@ -16,8 +16,7 @@ function init(){
 	gapi.client.load("youtube","v3",function(){
 	});
 }
-
- function getUserFromBase(){
+function getUserFromBase(){
 	$.ajax({
 		url:'usersOnline',
 		method:'GET',
@@ -81,10 +80,12 @@ function selectFriend(user,iam){
 							var resss = str.match(/[+]http/g);
 							if(resss == "+http"){
 	 							var res = res[i].text.replace("+http","");
+	 							console.log("date: "+res[i].date+", text: " + res[i].text);
 	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
 	 							"<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div></div>";
 	 						}else{
 	 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRUser\">"+res[i].text+"</div></div>";
+	 						console.log("date: "+res[i].date+", text: " + res[i].text);
 	 						}
 						}
 						else{
@@ -92,10 +93,12 @@ function selectFriend(user,iam){
 							var resss = str.match(/[+]http/g);
 							if(resss =="+http"){
 	 							var res = res[i].text.replace("+http","");
+	 							console.log("date: "+res[i].date+", text: " + res[i].text);
 	 							s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+
 	 							"<div id=\"messRFriend\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div></div>";
 	 						}else{
 	 						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i].date+"</span></div>"+"<div id=\"messRFriend\">"+res[i].text+"</div></div>";
+	 						console.log("date: "+res[i].date+", text: " + res[i].text);
 	 						}
 						}
 					}
