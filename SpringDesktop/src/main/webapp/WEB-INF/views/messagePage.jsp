@@ -276,7 +276,7 @@ function selectVideo(e,k){
 			var res = data.replace("+http","");
 			var s="";
             s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
-            $('#messRUser').css({"width":"310px","height":"190px"});
+            //$('#messRUser').css({"width":"310px","height":"190px"});
 			$("#mees").append(s);
 			$('#pool_mess').val('');
 		}
