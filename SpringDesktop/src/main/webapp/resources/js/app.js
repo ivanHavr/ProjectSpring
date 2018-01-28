@@ -147,12 +147,12 @@ function sendMessege(){
 					data:({message:$('#pool_mess').val()}),
 					method:'POST',
 					success: function(data){
-						var result = JSON.parse(data);
-						var sss="";
-						sss +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+result[1]+"</span></div>"+"<div id=\"messRUser\">"+result[0]+"</div></div>"
-		                $('#messRUser').css({"padding-left":""+((result[0].length*1,5)-result[0].length)+"px"});
-			     		$("#mees").append(sss);
-						$('#pool_mess').val('');
+//						var result = JSON.parse(data);
+//						var sss="";
+//						sss +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+result[1]+"</span></div>"+"<div id=\"messRUser\">"+result[0]+"</div></div>"
+//		                $('#messRUser').css({"padding-left":""+((result[0].length*1,5)-result[0].length)+"px"});
+//			     		$("#mees").append(sss);
+//						$('#pool_mess').val('');
 					}
 			});
 	      }
