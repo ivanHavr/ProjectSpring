@@ -245,7 +245,7 @@ function selectVideo(e,k){
 		data:({message:k+"+http"}),
 		method:'POST',
 		success: function(data){
-			var res = data;
+			var res = JSON.parse(data);
 			var id = res[0].replace("+http","");
 			var s="";
             s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[1]+"</span></div>" +
