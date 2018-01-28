@@ -4,9 +4,6 @@ package com.desktop.spring.impls;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
@@ -75,27 +72,17 @@ public class SQLiteDAO implements ProfileDAO{
 		String friendsId = (String) jdbcTemplate.queryForObject(sql,new Object[] {userid},String.class);
 		int r = 0;
 		for(int j = 0;j<friendsId.length();j++) {
-            if(friendsId.charAt(j)==','){
-            r++; 
-           }
+            if(friendsId.charAt(j)==','){r++;}
         }
 		r++;
 		String res[] = new String[r];
-        int c = 0;
-        int k = 0;
+        int c = 0,k = 0;
         for (int i = 0; i < friendsId.length(); i++) {
-            if(friendsId.charAt(i) == ','){
-            c++;
-            k=0;
-            }else{
-            if(k == 0){
-            	res[c]  = String.valueOf(friendsId.charAt(i));
-            k++;
-            }else{
-            	res[c] += String.valueOf(friendsId.charAt(i));
-            k++;
+            if(friendsId.charAt(i) == ','){c++;k=0;}
+            else{
+            	if(k == 0){res[c]  = String.valueOf(friendsId.charAt(i));k++;}
+            	else{res[c] += String.valueOf(friendsId.charAt(i));k++;}
             }
-          }
         }
 		Integer fId = friendId;
 		for(int j = 0;j<res.length;j++) {
@@ -129,38 +116,24 @@ public class SQLiteDAO implements ProfileDAO{
 		}else {
 		int r = 0;
 		for(int j = 0;j<friendsId.length();j++) {
-            if(friendsId.charAt(j)==','){
-            r++; 
-           }
+            if(friendsId.charAt(j)==','){r++;}
         }
 		r++;
 		String res[] = new String[r];
         int c = 0;
         int j = 0;
         for (int i = 0; i < friendsId.length(); i++) {
-            if(friendsId.charAt(i) == ','){
-            c++;
-            j=0;
-            }else{
-            if(j == 0){
-            	res[c]  = String.valueOf(friendsId.charAt(i));
-            j++;
-            }else{
-            	res[c] += String.valueOf(friendsId.charAt(i));
-            j++;
-            }
+            if(friendsId.charAt(i) == ','){c++;j=0;}
+            else{
+            if(j == 0){res[c]  = String.valueOf(friendsId.charAt(i));j++;}
+            else{res[c] += String.valueOf(friendsId.charAt(i));j++;}
             }
         }
 		String sqlf = "select * from admin_spread.profile_inf where ";
 		int i = 0;
 		while(i<res.length) {
-			if(i==0) {
-				sqlf +="id="+res[i]+" ";
-				i++;
-			}else {
-			sqlf +="or id="+res[i]+" ";
-			i++;
-			}
+			if(i==0) {sqlf +="id="+res[i]+" ";i++;}
+				else {sqlf +="or id="+res[i]+" ";i++;}
 		}
 		return jdbcTemplate.query(sqlf,new UserRowMapper());
 		}
