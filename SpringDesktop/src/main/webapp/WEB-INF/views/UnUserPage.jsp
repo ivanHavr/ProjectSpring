@@ -95,7 +95,7 @@ function retUser() {
     <span class="staticD">Status</span><span class="nameUserLeft">${userON.status}</span><hr><br>
     <span class="staticD">Age</span><span class="nameUserLeft">${userON.age}</span><hr><br>
     </div>
-    <a href="profile"><button id="AddFriend" onclick="AddToF()">Add to friends</button></a>
+    <a href="messagePage"><button id="AddFriend" onclick="AddToF()">Add to friends</button></a>
     <span id="valid">You are already have this friend!</span> 
 	</div>
 		</div>
