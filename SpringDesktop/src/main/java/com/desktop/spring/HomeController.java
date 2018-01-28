@@ -1,5 +1,8 @@
 package com.desktop.spring;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -124,9 +127,14 @@ public class HomeController {
 	@ResponseBody public String sendMessage(@RequestParam("message") String message,HttpSession httpSession,HttpServletResponse response) {
 		User Iam = (User)httpSession.getAttribute("userself");
 		User Add = (User)httpSession.getAttribute("userON");
-		sqliteDAO.sendMessage(Iam.getId(), Add.getId(), message);
+		String created = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)).toString();
+		sqliteDAO.sendMessage(Iam.getId(), Add.getId(), message,created);
 		response.setHeader("Content-Type", "text/html; charset=UTF-8");
-		return message;
+		List<String> result = new ArrayList<String>();
+		result.add(message);
+		result.add(created);
+		Gson gson = new Gson();
+		return gson.toJson(result);
 	}
 	@RequestMapping(value = "/getMessage",  method = RequestMethod.POST)
 	@ResponseBody public String getMessage(HttpSession httpSession, HttpServletResponse response) {

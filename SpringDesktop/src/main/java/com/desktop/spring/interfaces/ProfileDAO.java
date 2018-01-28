@@ -1,5 +1,6 @@
 package com.desktop.spring.interfaces;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.desktop.spring.objects.MessageBody;
@@ -21,7 +22,7 @@ public interface ProfileDAO {
 	List<User> getUserList();
 	void addFriend(int id, int idFriend);
 	boolean checkFriend(int userid, int friendId);	
-	void sendMessage(int sender_id, int recipient_id,String message);
+	void sendMessage(int sender_id, int recipient_id,String message,String created);
 	List<MessageBody> getMesseges(int sender, int recipient);
 	String getLastMesseges(int sender_id, int recipient_id);
 	void updateOnline(int id,boolean online);

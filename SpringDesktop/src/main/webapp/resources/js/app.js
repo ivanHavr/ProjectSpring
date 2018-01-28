@@ -113,7 +113,7 @@ function changeS(e){
 	if(selects == "Message" ){
 		$("#pool_mess").val('');
 		$("#pool_mess").attr("placeholder", "send a message...");
-		 $(".resultSearch").fadeOut(250,0);
+		$(".resultSearch").fadeOut(250,0);
 	}else if (selects == "Video"){
 		$("#pool_mess").val('');
 		$("#pool_mess").attr("placeholder", "send a video...");
@@ -139,23 +139,20 @@ function sendMessege(){
 			 if(dataMes==0){
 					$('#mees').html("");
 				}
-			 console.log("pre ajax");
 			    $.ajax({
 			    	url:'sendMessage',
 			    	mimeType:"text/html; charset=UTF-8",
 					data:({message:$('#pool_mess').val()}),
 					method:'POST',
 					success: function(data){
-						console.log("in ajax");
-						var res = data;
+						var res = JSON.parse(data);
 						var s="";
-	                    s +="<div id=\"messRUser\">"+res+"</div>";
-	                    $('#messRUser').css({"padding-left":""+((res.length*1,5)-res.length)+"px"});
-						$("#mees").append(s);
+						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[i+1]+"</span></div>"+"<div id=\"messRUser\">"+res[i]+"</div></div>"
+		                $('#messRUser').css({"padding-left":""+((res[i].length*1,5)-res[i].length)+"px"});
+			     		$("#mees").append(s);
 						$('#pool_mess').val('');
 					}
 			});
-			    console.log("post ajax");
 	      }
 		break;
 		case "Video":
