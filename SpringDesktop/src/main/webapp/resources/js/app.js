@@ -245,10 +245,11 @@ function selectVideo(e,k){
 		data:({message:k+"+http"}),
 		method:'POST',
 		success: function(data){
-			var res = data[0].replace("+http","");
+			var res = data;
+			var id = res[0].replace("+http","");
 			var s="";
-            s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+data[1]+"</span></div>" +
-            	"<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div></div>";
+            s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[1]+"</span></div>" +
+            	"<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+id+"\"></iframe></div></div>";
 			$("#mees").append(s);
 			$('#pool_mess').val('');
 		}
