@@ -64,11 +64,11 @@ function selectFriend(user,iam){
 						iamG = iam;
 						if(res[i].senderId==iam){
 							console.log("date: "+res[i].date+", text: "+res[i].text);
-							s += getFromDB("messRUser",res[i].date,res[i].text,s);
+							getFromDB("messRUser",res[i].date,res[i].text,s);
 						}
 						else{
 							console.log("date: "+res[i].date+", text: "+res[i].text);
-							s += getFromDB("messRFriend",res[i].date,res[i].text,s);
+							getFromDB("messRFriend",res[i].date,res[i].text,s);
 						}
 					}
 					$("#mees").html(s);
@@ -147,12 +147,12 @@ function sendMessege(){
 					data:({message:$('#pool_mess').val()}),
 					method:'POST',
 					success: function(data){
-//						var result = JSON.parse(data);
-//						var sss="";
-//						sss +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+result[1]+"</span></div>"+"<div id=\"messRUser\">"+result[0]+"</div></div>"
-//		                $('#messRUser').css({"padding-left":""+((result[0].length*1,5)-result[0].length)+"px"});
-//			     		$("#mees").append(sss);
-//						$('#pool_mess').val('');
+						var result = JSON.parse(data);
+						var sss="";
+						sss +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+result[1]+"</span></div>"+"<div id=\"messRUser\">"+result[0]+"</div></div>"
+		                $('#messRUser').css({"padding-left":""+((result[0].length*1,5)-result[0].length)+"px"});
+			     		$("#mees").append(sss);
+						$('#pool_mess').val('');
 					}
 			});
 	      }
