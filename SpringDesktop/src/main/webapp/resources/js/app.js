@@ -63,11 +63,11 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							console.log("date: "+result[1]+", text: "+result[0]);
+							console.log("date: "+res[i].date+", text: "+res[i].text);
 							s += getFromDB("messRUser",res[i].date,res[i].text,s);
 						}
 						else{
-							console.log("date: "+result[1]+", text: "+result[0]);
+							console.log("date: "+res[i].date+", text: "+res[i].text);
 							s += getFromDB("messRFriend",res[i].date,res[i].text,s);
 						}
 					}
