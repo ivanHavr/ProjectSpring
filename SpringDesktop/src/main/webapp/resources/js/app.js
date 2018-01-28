@@ -147,7 +147,7 @@ function sendMessege(){
 					success: function(data){
 						var res = JSON.parse(data);
 						var s="";
-						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[1].toString()+"</span></div>"+"<div id=\"messRUser\">"+res[0].toString()+"</div></div>"
+						s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[1]+"</span></div>"+"<div id=\"messRUser\">"+res[0]+"</div></div>"
 		                $('#messRUser').css({"padding-left":""+((res[0].length*1,5)-res[0].length)+"px"});
 			     		$("#mees").append(s);
 						$('#pool_mess').val('');
