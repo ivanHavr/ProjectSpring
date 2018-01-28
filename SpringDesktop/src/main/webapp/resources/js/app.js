@@ -63,11 +63,9 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							
 							s = getFromDB("messRUser",res[i].date,res[i].text,s);
 						}
 						else{
-							
 							s = getFromDB("messRFriend",res[i].date,res[i].text,s);
 						}
 					}
@@ -249,7 +247,8 @@ function selectVideo(e,k){
 		success: function(data){
 			var res = data.replace("+http","");
 			var s="";
-            s +="<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res+"\"></iframe></div>";
+            s +="<div class=\"messageBlock\"><div><span class=\"dateM\">"+res[1]+"</span></div>" +
+            	"<div id=\"messRUser\"><iframe width=\"300\" height=\"180\" src=\"https://www.youtube.com/embed/"+res[0]+"\"></iframe></div></div>";
 			$("#mees").append(s);
 			$('#pool_mess').val('');
 		}
