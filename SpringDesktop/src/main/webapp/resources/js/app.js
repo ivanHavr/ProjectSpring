@@ -55,7 +55,7 @@ function selectFriend(user,iam){
 				success: function(data){
 					var res = JSON.parse(data);
 					dataMes = res.length;
-					var s="";
+					var s;
 					if(dataMes==0){
 						$('#mees').html("<div id=\"DefInf\"><span id=\"def\">Let's start discussing with your friend</span></div>");
 						return;
@@ -63,12 +63,12 @@ function selectFriend(user,iam){
 					for (var i = 0; i < res.length; i++) {
 						iamG = iam;
 						if(res[i].senderId==iam){
-							console.log("date: "+res[i].date+", text: "+res[i].text);
-							getFromDB("messRUser",res[i].date,res[i].text,s);
+							
+							s = getFromDB("messRUser",res[i].date,res[i].text,s);
 						}
 						else{
-							console.log("date: "+res[i].date+", text: "+res[i].text);
-							getFromDB("messRFriend",res[i].date,res[i].text,s);
+							
+							s = getFromDB("messRFriend",res[i].date,res[i].text,s);
 						}
 					}
 					$("#mees").html(s);
