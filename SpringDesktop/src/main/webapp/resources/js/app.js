@@ -55,7 +55,7 @@ function selectFriend(user,iam){
 				success: function(data){
 					var res = JSON.parse(data);
 					dataMes = res.length;
-					var s;
+					var s = "";
 					if(dataMes==0){
 						$('#mees').html("<div id=\"DefInf\"><span id=\"def\">Let's start discussing with your friend</span></div>");
 						return;
