@@ -67,7 +67,7 @@ $(document).ready(function(){
 </head>
 <body>
 <div id="header">
-<span id="logo">Profile Post Configuration</span>
+<span id="logo">Indigo Configuration</span>
 <div id="search">
 		<input type="text" placeholder="search..." id="searchUser" onkeyup="retUser()" />
 		<div id="inher">
