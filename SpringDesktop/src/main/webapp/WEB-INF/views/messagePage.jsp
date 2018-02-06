@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id="header">
-<span id="logo"><span>Sp</span>read messanger</span>
+<span id="logo"><span>In</span>digo messanger</span>
 <div id="search">
 		<input type="text" placeholder="search..." id="searchUser" onkeyup="retUser()" />
 		<div id="inher">

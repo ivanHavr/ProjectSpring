@@ -8,14 +8,14 @@
 <link href="<c:url value="/resources/css/index.css" /> " rel="stylesheet" />
 <link href="<c:url value="/resources/font/font-awesome-4.7.0/css/font-awesome.min.css"/>" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>Welcome to Spread</title>
+<title>Welcome to Indigo</title>
 <script type="text/javascript">
 
 </script>
 </head>
 <body>
 <div id="leftSide">
-<div id="headers"><h1><span>Sp</span>read</h1>
+<div id="headers"><h1><span>In</span>digo</h1>
 <p>This application developed by Student<br>
 and this is a test version</p>
 <p><br>
@@ -37,8 +37,8 @@ Try this program and write what you think</p>
 <div id="rightSide" style="background-image:url('<c:url value="/resources/images/backGIndex.jpg" />'); ">
 <div id="profPost">
 <img id="img" src="<c:url value="/resources/images/logoImg.png" />">
-<span id="pp"><span>Sp</span>read</span><br>
-<span id="tt">All what you need is...spread...</span>
+<span id="pp"><span>In</span>digo</span><br>
+<span id="tt">All what you need is...indigo...</span>
 </div>
 </div>
 </body>

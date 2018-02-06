@@ -21,7 +21,7 @@
 </head>
 <body>
 <div id="header">
-<span id="logo">Profile Post Registration</span>
+<span id="logo">Indigo Registration</span>
 </div>
 	<div id="friendContext">
        <div id="fr_inner">

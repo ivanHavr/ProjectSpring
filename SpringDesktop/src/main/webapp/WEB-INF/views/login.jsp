@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
-<title>ProfilePostLogin</title>
+<title>IndigoLogin</title>
 <link href="<c:url value="/resources/css/login.css" /> "
 	rel="stylesheet" />
 <link

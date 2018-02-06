@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Friend</title>
+<title>Indigo Friend</title>
 <link href="<c:url value="/resources/css/UnUserPage.css" />" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -58,7 +58,7 @@ function retUser() {
 </head>
 <body>
 <div id="header">
-<span id="logo">Profile Post Search</span>
+<span id="logo">Indigo Search</span>
 <div id="search">
 		<input type="text" placeholder="search..." id="searchUser" onkeyup="retUser()" />
 		<div id="inher">
