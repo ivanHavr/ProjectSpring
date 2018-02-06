@@ -13,7 +13,7 @@ body{
 }
 #search{
 	display: inline-block;
-	margin-left: 68px;
+	margin-left: 106px;
 	position: relative;
 }
 .listSearch a{
@@ -116,7 +116,7 @@ a{
 	
 }
 #logo{
-	margin-left:20px;
+	margin-left:58px;
 	font-family:serif;
 	font-weight:normal;
 	font-size: 36.8px;

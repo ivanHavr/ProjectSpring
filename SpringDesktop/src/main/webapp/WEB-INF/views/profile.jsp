@@ -8,21 +8,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>My profile</title>
 <script type="text/javascript">
-$(document).ready(function(){
-	$.ajax({
-		url:'buttonShow',
-		method:'GET',
-		success: function(data){
-				if(data=="true"){
-					$('#buttonAdd').hide();
-				}
-				else{
-					$('#buttonAdd').show();
-				}
-		}
+// $(document).ready(function(){
+// 	$.ajax({
+// 		url:'buttonShow',
+// 		method:'GET',
+// 		success: function(data){
+// 				if(data=="true"){
+// 					$('#buttonAdd').hide();
+// 				}
+// 				else{
+// 					$('#buttonAdd').show();
+// 				}
+// 		}
 
-});
-});
+// });
+// });
 	$(document).ready(function() {
 		$.ajax({
 			url:'usersOnline',
